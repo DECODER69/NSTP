@@ -1,0 +1,35 @@
+body {
+    background-color: transparent
+}
+
+.del {
+    margin-top: 30px;
+    background-color: rgb(177, 176, 174);
+}
+
+h1 {
+    color: #000000cb;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 50px!important;
+}
+
+.btn {
+    width: 300px;
+    height: 50px;
+    background-color: #ce1c1c;
+}
+
+.btn1 {
+    width: 300px;
+    height: 50px;
+    background-color: #797979;
+    text-align: center;
+    font-size: 30px!important;
+}
+
+.buttons {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}

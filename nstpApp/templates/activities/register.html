@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/register.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Registration</title>
+</head>
+
+<body>
+    <div id="bg-color">
+        <div class="header">
+            <div id="logo">
+                <a id="back" href="homepage.html"><img src="../image/logo.png" alt="logo"></a>
+            </div>
+            <div id="name">
+                <h1>NATIONAL SERVICE TRAINING PROGRAM</h1>
+                <p1>Technological University of the Philippines - Cavite</p1>
+            </div>
+
+        </div>
+        <!-- form header -->
+        <div id="container">
+            <h1><b>NSTP</b></h1>
+            <p>Create your NSTP Account</p>
+
+            <div class="registration">
+                <div class="left">
+                    <form action="insert.php" method="POST">
+                        <div id="names">
+                            <input id="fname" type="text" name="first_name" placeholder="First name" required autofocus>
+                            <input id="lname" type="text" name="last_name" placeholder="Last name" required autofocus>
+                            <input id="mname" type="text" name="middle_initial" placeholder="M.I" required autofocus>
+                        </div>
+
+                        <div id="email">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <label for="email">Kindly use your GSFE Account</label>
+                        </div>
+
+                        &nbsp;
+                        <hr>
+
+
+                        <div id="birthday">
+                            <select id="Month" aria-labelledby="Month-label" name="months">
+                                <option id="hidden-month" hidden>Month</option>
+                                <option class="month">January</option>
+                                <option class="month">February</option>
+                                <option class="month">March</option>
+                                <option class="month">April</option>
+                                <option class="month">May</option>
+                                <option class="month">June</option>
+                                <option class="month">July</option>
+                                <option class="month">August</option>
+                                <option class="month">September</option>
+                                <option class="month">October</option>
+                                <option class="month">November</option>
+                                <option class="month">December</option>
+                            </select>
+                            <input id="bdate" type="text" name="birthdate" placeholder="Day" required>
+                            <input id="byear" type="text" name="birthyear" placeholder="Year" required>
+                            <p>Your Birthday</p>
+                        </div>
+
+                        <div id="address">
+                            <input type="text" name="address" placeholder="Address" required><br>
+                            <label for="email">Your Complete Address</label>
+                        </div>
+                        <div id="idnumber">
+                            <input type="text" name="idnum" placeholder="TUPC-XX-XXXX" required><br>
+                            <label for="idnum">Your Complete Address</label>
+                        </div>
+                        <div id="gender-age">
+
+                            <select id="gender-option" name="gender">
+                                <option hidden>Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+
+                            <input id="age" type="text" placeholder="Age" name="age">
+
+                        </div>
+                        <br>
+
+
+                        <div id="contact">
+                            <img id="flag" alt="Phil. Flag" src="../image/flag.jpg">
+                            <input type="text" name="contact_number" required value="+63 ">
+                            <p1>NSTP System will use this number only for account security. Your number won’t be visible to others. </p1>
+                        </div><br><br>
+
+                        <hr>
+
+                        <div id="id-number">
+                            <input type="text" name="id-numbers" required placeholder="Username: eg. TUPC-XX-XXXX"><br>
+                            <p1>Use only your ID number as your Username.</p1>
+
+                        </div>
+
+                        <div id="passwords">
+                            <input id="pwd" type="password" placeholder="Password" required name="password">
+                            <input id="con-pwd" type="password" placeholder="Confirm Password" required name="con-password" onkeyup="check(this)"><br>
+                            <p id="message"></p>
+                            <error id="alert"></error>
+                            <p1>Use 8 or more characters with a mix of letters, numbers & symbols</p1><br>
+                            <hr>
+                        </div>
+                        <input id="submit-btn" type="submit" value="Submit" placeholder="Submit">
+                        <input id="reset-btn" type="reset" value="Reset" placeholder="Reset">
+
+
+
+                    </form><br><br> &nbsp;<br>
+                    <p1 id="for-login">Already have an Account? <a href="../login.html">Login</a> here</p1>
+
+                </div>
+
+                <div class="right">
+                    <img src="../image/personal.svg" alt="Security logo">
+                    <p1>Your personal info is private & safe</p1>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../js/password.js"></script>
+</body>
+
+</html>

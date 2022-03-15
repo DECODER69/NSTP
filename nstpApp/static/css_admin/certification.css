@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css");
+.SearchBar {
+    float: right;
+}
+
+.Head {
+    text-align: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    padding: 20px 20px 20px 20px;
+}
+
+h4 {
+    color: #691a1b;
+}
+
+p {
+    color: #691a1b;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.cert {
+    margin-top: 200px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#navbarNavAltMarkup li a {
+    color: #691a1b;
+    font-weight: bolder;
+    font-style: normal;
+}
+
+#navbarNavAltMarkup a:hover {
+    color: #DF465A;
+}
+
+#FAQS {
+    margin-top: 10px;
+    background: transparent;
+}
+
+#FAQS h1 {
+    color: #691a1b;
+    font-weight: bolder;
+}
+
+#navbarNavAltMarkup a {
+    color: white;
+    font-weight: bold;
+}
+
+#navbarNavAltMarkup a:focus {
+    border-bottom: 1px solid #691a1b;
+}
+
+#logo img {
+    width: 150px;
+    height: auto;
+}
+
+#hamburger i {
+    color: #691a1b;
+    font-size: 30px;
+}
+
+.label {
+    margin: 0;
+    display: grid;
+}
+
+#signin-btn {
+    color: #691a1b;
+    border: 1px solid #691a1b;
+}
+
+#signin-btn:hover {
+    background-color: #b10012;
+}
+
+#try1 {
+    margin: auto;
+    display: flex;
+}
+
+.card-header {
+    font-size: 30px!important;
+    font-weight: bolder;
+}
+
+iframe {
+    margin: auto;
+    display: flex;
+}
+
+.cards {
+    display: grid;
+    grid-gap: 10px;
+    margin: 10px 10px 10px 10px;
+}
+
+.card-img-top {
+    display: flex;
+    margin: auto;
+}
+
+.btn {
+    margin: auto;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.card {
+    border: #691a1b solid 1px;
+}
+
+#title {
+    font-size: 100px;
+    font-weight: bolder;
+    margin: auto;
+    display: flex;
+}
+
+#canvas {
+    background-color: #691a1b;
+}
+
+.containerx {
+    background-color: #ffffff;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+.containerx h1 {
+    color: #691a1b;
+    font-weight: bolder;
+    margin: auto;
+    display: flex;
+}
+
+#titlecert {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: auto;
+    display: flex;
+}
+
+#inputname {
+    margin-top: -100px;
+    margin: auto;
+    display: flex;
+    margin-top: 50px;
+}
+
+#name {
+    margin-top: -100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+#download-btn {
+    margin-top: -100px;
+    margin: auto;
+    display: flex;
+}
+
+.update {
+    padding: 4px;
+    margin-right: 4px;
+    background-color: #00a05b;
+    color: #ffffff;
+}
+
+.delete {
+    text-decoration: none;
+    padding: 4px;
+    margin-left: 2px;
+    background-color: #8c000e;
+    color: #ffffff;
+}
+
+.delete a {
+    color: #ffffff;
+}
+
+.approved {
+    background-color: #00a05b;
+    color: #ffffff;
+}
+
+
+/*Window size: tablet and phone*/
+
+@media only screen and (max-width: 1000px) {
+    nav,
+    main {
+        padding: 0 10px 0 10px;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+    }
+    #logo img {
+        width: 60px;
+        height: auto;
+    }
+    .label h4 {
+        font-size: 15px;
+    }
+    #carouselExampleIndicators {
+        height: 50vh;
+    }
+    #carousel-img img {
+        height: 50vh;
+    }
+}
+
+
+/*Window size: full screen or Computer*/
+
+@media only screen and (min-width: 1000px) {
+    #navbarNavAltMarkup {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    .card {
+        display: grid;
+        width: 100%;
+    }
+    .card-body {
+        justify-self: center;
+        display: grid;
+        width: auto;
+        width: 100%;
+    }
+    .cert {
+        width: 100px;
+    }
+    .certi1 {
+        width: auto;
+        font-size: 15px;
+    }
+    .certificate {
+        font-size: 25px!important;
+        font-weight: bolder;
+    }
+}

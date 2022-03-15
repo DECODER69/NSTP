@@ -1,0 +1,66 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+<head>
+  <title>Footer Design</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+  <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>NSTP</h4>
+  	 			<ul>
+                       <p>
+                        Naval Reserve Officer's Training Corps <br>
+                        Corps of Midshipmen/women <br>
+                        Technological University of the Philippines-Cavite
+                    </p>
+  
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>About ROTC</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'activities:indexcard2' %}" target="_blank">Learn More</a></li>
+  	 				
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>About CWTS</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'activities:indexcard1' %}" target="_blank">Learn More</a></li>
+  	 			
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+                   <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">christian.rapal@gsfe.tupcavite.edu.ph</a>
+                    </li>
+                    <li>
+                        <a href="#!">jhousua.jumalon@gsfe.tupcavite.edu.ph</a>
+                    </li>
+                    <li>
+                        <a href="#!">johnchristopher@gsfe.tupcavite.edu.ph</a>
+                    </li>
+                   <br>
+                </ul>
+  	 			<div class="social-links">
+  	 				<a href="https://web.facebook.com/236th.nrotcu.tupc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="#"><i class="fab fa-twitter"></i></a>
+  	 				<a href="#"><i class="fab fa-instagram"></i></a>
+  	 				<a href="https://github.com/DECODER69/NSTP_SYSTEM" target="_blank"><i class="fab fa-github"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
+
+</body>
+</html>

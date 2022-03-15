@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css");
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    padding: 20px 20px 20px 20px;
+}
+
+h4 {
+    color: #691a1b;
+}
+
+p {
+    color: #691a1b;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.label {
+    margin: 0;
+    display: grid;
+}
+
+.card-header {
+    font-size: 30px!important;
+    font-weight: bolder;
+}
+
+iframe {
+    margin: auto;
+    display: flex;
+}
+
+.cards {
+    display: grid;
+    grid-gap: 10px;
+    margin: 10px 10px 10px 10px;
+}
+
+.card-img-top {
+    display: flex;
+    margin: auto;
+}
+
+.btn {
+    margin: auto;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.card {
+    border: #691a1b solid 1px;
+}
+
+#title {
+    font-size: 100px;
+    font-weight: bolder;
+    margin: auto;
+    display: flex;
+}
+
+
+/* 
+UPLOADSSSSSSSSSS */
+
+#one {
+    margin-top: 50px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.it .btn-orange {
+    background-color: transparent;
+    border-color: #777!important;
+    color: #777;
+    text-align: left;
+    width: 100%;
+}
+
+.it input.form-control {
+    height: 54px;
+    border: none;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+}
+
+.it .form-control:focus {
+    border-color: #ff4d0d;
+    box-shadow: none;
+    outline: none;
+}
+
+.fileUpload {
+    position: relative;
+    margin: 10px;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.it .btn-new,
+.it .btn-next {
+    margin: 30px 0px;
+    border-radius: 0px;
+    background-color: #333;
+    color: #f5f5f5;
+    font-size: 16px;
+    width: 155px;
+}
+
+.it .btn-next {
+    background-color: #ff4d0d;
+    color: #fff;
+}
+
+.it .btn-check {
+    cursor: pointer;
+    line-height: 54px;
+    color: red;
+}
+
+.it .uploadDoc {
+    margin-bottom: 20px;
+}
+
+.it .uploadDoc {
+    margin-bottom: 20px;
+}
+
+.it .btn-orange img {
+    width: 30px;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.pdf {
+    background-color: rgb(19, 141, 60);
+    height: 40px;
+    border: solid 1px #000000;
+    width: 150px;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+}
+
+.pdf a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    margin: auto;
+}
+
+.pdf a:hover {
+    color: rgb(230, 230, 230);
+}
+
+.delete {
+    background-color: rgb(189, 30, 30);
+    height: 40px;
+    border: solid 1px #000000;
+    width: 150px;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+}
+
+.delete a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    margin: auto;
+}
+
+.it #uploader .docErr {
+    position: absolute;
+    right: auto;
+    left: 10px;
+    top: -56px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #fff;
+    color: red;
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.it #uploader .docErr:after {
+    content: '\f0d7';
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    left: 30px;
+    bottom: -40px;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+#uploadx {
+    display: flex;
+    margin-top: 10px;
+    justify-self: center;
+    justify-content: center;
+}
+
+
+/* display data from database */
+
+.uploads {
+    display: flex;
+    margin-top: 30px;
+}
+
+.table {
+    margin-top: 50px;
+    border: #333 solid 1px;
+    height: auto;
+}
+
+
+/*Window size: tablet and phone*/
+
+@media only screen and (max-width: 1000px) {
+    #logo img {
+        width: 60px;
+        height: auto;
+    }
+    .label h4 {
+        font-size: 15px;
+    }
+    #carouselExampleIndicators {
+        height: 50vh;
+    }
+    #carousel-img img {
+        height: 50vh;
+    }
+    .right {
+        margin-top: 20px;
+        margin-left: 0;
+        font-size: 10px;
+        width: 900px!important;
+    }
+    .left {
+        width: 900px!important;
+    }
+    .uploads {
+        width: 100%;
+    }
+}
+
+
+/*Window size: full screen or Computer*/
+
+@media only screen and (min-width: 1000px) {
+    .uploads {
+        width: 100%;
+        justify-content: center;
+        padding: 15px;
+    }
+    .fileUpload {
+        display: grid;
+        justify-content: center;
+        font-size: 15px;
+    }
+    .icon {
+        justify-self: center;
+    }
+    #upload {
+        justify-self: center;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .uploads {
+        display: grid;
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+    }
+    .left {
+        width: 1000px;
+        display: grid;
+        margin: auto;
+    }
+    .container1 {
+        width: 100%;
+    }
+    #one {
+        width: 100%;
+        justify-self: center;
+        margin: auto;
+    }
+    .upl {
+        width: 100%;
+    }
+    #uploader {
+        display: grid;
+    }
+    #uploadx {
+        display: flex;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    .right {
+        margin-top: 50px;
+        width: 100%;
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .fileUpload {
+        display: grid;
+        justify-content: center;
+    }
+    #upload {
+        font-size: 10px;
+    }
+    .icon {
+        justify-self: center;
+    }
+}
+
+@media only screen and (max-width: 535px) {
+    .uploads {
+        display: grid;
+        width: 100%;
+        justify-content: center;
+    }
+    .left {
+        width: 500px;
+        display: grid;
+        margin: auto;
+    }
+    .right {
+        width: 500px;
+        display: grid;
+        margin: auto;
+        font-size: 10px;
+    }
+    #uploadx {
+        font-size: 15px;
+    }
+    p {
+        justify-self: center;
+    }
+    .upl {
+        width: 100%;
+        justify-content: center;
+        justify-self: center;
+    }
+    .fileUpload {
+        display: grid;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .icon {
+        justify-self: center;
+    }
+}

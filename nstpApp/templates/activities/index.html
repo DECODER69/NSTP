@@ -1,0 +1,215 @@
+<!DOCTYPE html> {% load static %}
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LANDING PAGE</title>
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <!-- BOOTSTRAP -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    {% include 'activities/navlanding.html' %}
+
+    <!-- {% for im in images%}
+
+    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+        <img src="{{im.imagefile.url}}">
+    </div>
+
+    {%endfor %} -->
+
+    <!-- CAROUSEL -->
+
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for im in images%}
+
+            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                <img src="{{im.imagefile.url}}">
+            </div>
+
+            {%endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleFade" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleFade" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </button>
+    </div>
+    <!-- FAQS -->
+    <div class="card text-center" id="FAQS" style="height: 100vh;">
+        <div class="card-body">
+            <h1 class="card-title">NSTP PROMOTIONAL VIDEO</h1>
+
+
+            <!-- <p class="card-text">Here are the Frequently Asked Question.</p> -->
+        </div>
+        <div class="video">
+            <iframe width="70%" height="500" src="https://www.youtube.com/embed/uHlkzQDj6j0" allowfullscreen>
+                </iframe>
+
+        </div>
+
+    </div>
+
+    <div class="latestx">
+        <h1 class="latest">LATEST ACTIVITIES</h1>
+        <div class="card-deck">
+            <div class="card">
+                <a href="#"><img src="{% static 'image/c3.jpg' %}" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title">CWTS Activities</h5>
+                    {% comment %}
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+                    <a href="{% url 'activities:indexcard1' %}" class="btn btn-primary">Learn more</a>
+
+                </div>
+            </div>
+            <div class="card">
+                <a href="#"><img src="{% static 'image/card1.jpg' %}" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title">ROTC Activities</h5>
+                    {% comment %}
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+                    <a href="{% url 'activities:indexcard2' %}" class="btn btn-primary">Learn more</a>
+
+                </div>
+            </div>
+            <div class="card">
+                <a href="#"><img src="{% static 'image/c3.jpg' %}" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title">MISSION and VISION</h5>
+                    {% comment %}
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+                    <a href="{% url 'activities:indexcard4' %}" class="btn btn-primary">Learn more</a>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="latesty" id="card-deck1">
+            {% comment %}
+            <div class="card-deck">
+                <div class="card">
+                    <a href="#"><img src="{% static 'image/c3.jpg' %}" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">CWTS Mission and Vision</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="../html/index_card4.html" class="btn btn-primary">Learn more</a>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="{% static 'image/card1.jpg' %}" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">ROTC Mission and Vision</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="../html/index_card5.html" class="btn btn-primary">Learn more</a>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="{% static 'image/c3.jpg' %}" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Learn more</a>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+        </div>
+
+        <!-- <div class="load">
+                <button class="loadm" style="text-decoration: none; color:white" onclick="loads()">SHOW MORE </button>
+
+
+            </div> -->
+
+    </div>
+
+
+
+
+
+
+
+    <div class="headdd">
+        <div class="nnd">
+            <h3 id="list-item-1">About NSTP?</h3>
+            <p>
+                NSTP is a program aimed at enhancing civic consciousness and defense preparedness in the youth by developing the ethic of service and patriotism while undergoing training in any of its three (3) program components. Its various components are specially
+                designed to enhance the youth’s active contribution to the general welfare of the country. (Section 3, RA 9163) <br> <br> Graduates of the NSTP are encouraged to actively participate in the formation of School-Based National
+                Service Reserve Corps (SBNSRC) and to pursue volunteerism in the planning and implementation of community projects and programs established with the adopted and partner communities.
+            </p> <br>
+
+
+
+
+            <div class="indent2">
+                <h3>Three Program Components:</h3>
+                <p>
+                    Reserve Office Training Corps (ROTC) <br> Literacy Training Service (LTS) <br> Civic Welfare Training Service (CWTS) <br>
+
+                </p>
+
+            </div>
+
+
+            <p>
+                ROTC is program institutionalized under Section 38 and 39 of RA No. 7077 designed to provide military training to tertiary level students in order to motivate, train, organized and mobilize them for national defense preparedness. (Section 3, RA 9163)
+                <br> <br> CWTS refers to programs of activities contributory to the general welfare and the betterment of life for members of the community or the enhancement of its facilities, especially those devoted to improving health, education,
+                environment, entrepreneurship, safety, recreation and morals of the citizen (Section 3, RA 9163). <br> <br> LTS is a program designed to train students to become teachers of literacy and numeracy skills to school children, out of school
+                youth, and other segments of society in need of their service. (Section 3, RA 9163)
+            </p>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    {% include 'activities/footer.html' %}
+
+
+
+    <!-- BOOTSTRAP BUNDLE -->
+
+
+
+
+
+
+    {% comment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> {% endcomment %}
+
+
+
+    <script src="{% static '/js/landingpage.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+
+</html>

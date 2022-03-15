@@ -1,0 +1,25 @@
+.pdf {
+    background-color: rgb(6, 109, 206);
+    height: 40px;
+    border: solid 1px #000000;
+    width: 150px;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+}
+
+.pdf a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    margin: auto;
+}
+
+.pdf a:hover {
+    color: rgb(230, 230, 230);
+}
+
+.dl {
+    text-align: center;
+}

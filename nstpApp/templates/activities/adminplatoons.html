@@ -1,0 +1,162 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar_Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="{% static 'css_admin/NavAdmin.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% include 'activities/NavAdmin.html' %}
+    <!-- 
+    cards -->
+    <div class="cards">
+        <div class="card-deck">
+            <div class="card">
+                <h id="title">A</h>
+                <div class="card-body">
+                    <h5 class="card-title">ALPHA</h5>
+
+
+                </div>
+                <a href="/d_alpha"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">B</h>
+                <div class="card-body">
+                    <h5 class="card-title">BRAVO</h5>
+
+
+                </div>
+                <a href="/d_bravo"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">C</h>
+                <div class="card-body">
+                    <h5 class="card-title">CHARLIE</h5>
+
+
+                </div>
+                <a href="/d_charlie"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">D</h>
+                <div class="card-body">
+                    <h5 class="card-title">DELTA</h5>
+
+
+                </div>
+                <a href="/d_delta"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="cards">
+        <div class="card-deck">
+            <div class="card">
+                <h id="title">E</h>
+                <div class="card-body">
+                    <h5 class="card-title">ECHO</h5>
+
+
+                </div>
+                <a href="/d_echo"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">F</h>
+                <div class="card-body">
+                    <h5 class="card-title">FOXTROT</h5>
+
+
+                </div>
+                <a href="/d_foxtrot"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">G</h>
+                <div class="card-body">
+                    <h5 class="card-title">GOLF</h5>
+
+
+                </div>
+                <a href="/d_golf"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">H</h>
+                <div class="card-body">
+                    <h5 class="card-title">HOTEL</h5>
+
+
+                </div>
+                <a href="/d_hotel"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+
+        </div>
+        <br>
+    </div>
+
+    <div class="cards">
+        <div class="card-deck">
+            <div class="card">
+                <h id="title">I</h>
+                <div class="card-body">
+                    <h5 class="card-title">INDIA</h5>
+
+
+                </div>
+                <a href="/d_india"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">J</h>
+                <div class="card-body">
+                    <h5 class="card-title">JULIET</h5>
+
+
+                </div>
+                <a href="/d_juliet"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">K</h>
+                <div class="card-body">
+                    <h5 class="card-title">KILO</h5>
+
+
+                </div>
+                <a href="/d_kilo"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+            <div class="card">
+                <h id="title">L</h>
+                <div class="card-body">
+                    <h5 class="card-title">LIMA</h5>
+
+
+                </div>
+                <a href="/d_lima"><button type="button" class="btn btn-primary">Open Class</button></a>
+            </div>
+
+        </div>
+        <br>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="{% static 'js_admin/alpha.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

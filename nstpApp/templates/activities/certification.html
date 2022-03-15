@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="{% static 'css/certification.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% include 'activities/base.html' %}
+
+    <!-- Form -->
+
+    <h1 class="HeadCert">CERTIFICATION / SERIAL NUMBER REQUEST FORM</h1><br>
+    <div class="container">
+        <form action="{% url 'activities:cert' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" placeholder="name@gsfe.tupcavite.edu.ph" name="cert_email">
+
+            </div>
+
+
+
+            <label for="validationCustom01">FULL NAME</label>
+            <input type="text" class="form-control" id="fname" name="cert_fullname" placeholder="Ex: Juan Dela Cruz" required>
+            <div class="invalid-feedback">
+                Please provide a valid name.
+            </div>
+
+
+
+
+
+            <label for="validationCustom04">COURSE</label>
+            <select class="custom-select" id="validationCustom04" required name="cert_course">
+                <option selected disabled="true">Choose...</option>
+                <option>BSIE</option>
+                <option>BSCE</option>
+                <option>BSEE</option>
+                <option>BSME</option>
+                <option>BTTE</option>
+                <option>BET-COET</option>
+                <option>BET-AT</option>
+                <option>BET-CT</option>
+                <option>BET-ESET</option>
+                <option>BET-ET</option>
+                <option>BET-MT</option>
+                <option>BET-PPT</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+
+
+            <label for="lname">DATE REQUESTED</label><br>
+            <input type="date" id="lname" name="cert_datereq" placeholder="date" required>
+            <br> &nbsp;
+            <br>
+
+
+
+
+            <label for="lname">REQUESTED DOCUMENT</label>
+            <input type="text" id="document" name="cert_document" placeholder="Ex: Serial Number" required>
+
+            <input type="submit" value="Submit">
+            <br>
+
+            <div class="status">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Email</th>
+                            <th scope="col">DATE REQUESTED</th>
+                            <th scope="col">REQUESTED DOCUMENT</th>
+                            <th scope="col">STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in requests %}
+                        <tr>
+                            <th scope="row">{{i.cert_email}} </th>
+                            <td>{{i.cert_datereq}}</td>
+                            <td>{{i.cert_document}}</td>
+                            <td>{{i.cert_status}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="js/landingpage.js"></script>
+</body>
+
+</html>

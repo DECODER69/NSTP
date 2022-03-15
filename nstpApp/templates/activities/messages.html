@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% if messages %} {% for message in messages %}
+    <div class="alert {{message.tags}} m-2" id="msg" role="alert">
+        {{message}}
+
+    </div>
+    {% endfor %} {% endif %}
+
+</body>
+
+</html>
