@@ -1,7 +1,6 @@
-<!-- UPDATED -->
+<!DOCTYPE html>
 
-
-<!DOCTYPE html> {% load static %}
+{% load static %}
 <html lang="en">
 
 
@@ -50,8 +49,7 @@
 
         <div class="status">
             <h1 class="heads">Enrollment Status</h1>
-            <hr>
-            {% for s in name %}
+            <hr> {% for s in name %}
             <p class="estatus">{{s.status}}</p>
             {% endfor %}
 
