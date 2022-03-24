@@ -40,6 +40,7 @@
                             <th scope="col">Fullname</th>
                             <th scope="col">Course</th>
                             <th scope="col">Email</th>
+
                             <th scope="col">Enrollment Status</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -51,6 +52,7 @@
                             <td scope="row">{{i.fname}} {{i.lname}}</td>
                             <td>{{i.section}}</td>
                             <td>{{i.email}}</td>
+
                             <form action="{% url 'activities:enrollupdate' %}" method="POST">
                                 {% csrf_token %}
                                 <td>
@@ -60,7 +62,7 @@
                             <option value="ENROLLED">APPROVED</option>
                         </select></td>
 
-                                <td><input type="hidden" name="getID" value="{{i.id}}"><button class="update" id="submit" onclick="status()" type="submit"><i class="fa fa-check-circle" aria-hidden="true" style="color: rgb(8, 162, 0);">UPDATE</i></button>
+                                <td><input type="hidden" name="getID" value="{{i.id}}"><button class="update" id="submit" type="submit"><i class="fa fa-check-circle" aria-hidden="true" style="color: rgb(8, 162, 0);">UPDATE</i></button>
                                     <button class="delete" disabled><a href="#" id="delete" style="text-decoration: none;" name="delete"><i class="fa fa-trash" aria-hidden="true" style="color: rgb(175, 22, 22);">DELETE</i></a></button>
 
 
@@ -97,17 +99,6 @@
                 }
             }
 
-        }
-
-        function status() {
-            let status = document.getElementById("status").value;
-            if (status == "PENDING") {
-                document.getElementById("submit").disabled = false;
-                document.getElementById("delete").disabled = true;
-            } else if (status == "ENROLLED") {
-                document.getElementById("submit").disabled = true;
-                document.getElementById("delete").disabled = false;
-            }
         }
     </script>
 

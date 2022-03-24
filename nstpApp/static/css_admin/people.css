@@ -18,6 +18,21 @@ h4 {
     color: #691a1b;
 }
 
+#rows {
+    position: fixed;
+}
+
+.containers {
+    margin-left: 100px !important;
+    margin-right: 100px;
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+
+.table {
+    margin-top: 0px !important;
+}
+
 p {
     color: #691a1b;
     padding-left: 40px;

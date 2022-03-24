@@ -46,6 +46,7 @@ class extenduser(models.Model):
     field_rotc = 0
     field_cwts = 1
     field_choices = [(field_rotc, 'ROTC'), (field_cwts, 'CWTS')]
+    platoon = models.CharField(max_length=10, blank=True, null=True)
     # idnum = models.CharField(max_length=12,  unique=True, default='')
     lname = models.CharField(max_length=20, default='')
     fname = models.CharField(max_length=30, default='')

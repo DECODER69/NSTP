@@ -70,12 +70,16 @@ def cwtslist(request):
     return render(request, 'activities/cwtslist.html', {'list1': list1})
 
 def adminrotclist(request):
-    rlist = extenduser.objects.filter(field='ROTC')
+    rlist = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
     return render(request, 'activities/adminrotclist.html', {'rlist': rlist})
 
 def admincwtslist(request):
-    clist = extenduser.objects.filter(field='CWTS')
+    clist = extenduser.objects.filter(field='CWTS').filter(status='PENDING')
     return render(request, 'activities/admincwtslist.html', {'clist': clist})
+
+def enrolledrotc(request):
+    enrolled = extenduser.objects.filter(field='ROTC').filter(status='ENROLLED')
+    return render(request, 'activities/enrolledrotc.html', {'enrolled': enrolled})
 
 
 
@@ -172,6 +176,9 @@ def student_lima(request):
 
 
 #                   admin
+def platooncount(request):
+    pass
+
 def adminlogin(request):
     return render(request, 'activities/login-admin.html')
 
@@ -476,6 +483,13 @@ def enrollupdate(request):
     en2 = request.POST.get('getID')
     extenduser.objects.filter(id=en2).update(status=en1)
     return redirect('/adminrotclist')
+
+def platoonupdate(request):
+    enr1 = request.POST.get('plat')
+    enr2 = request.POST.get('getID')
+    extenduser.objects.filter(id=enr2).update(platoon=enr1)
+    return redirect('/enrolledrotc')
+    
 
 
 

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-{% load static %}
+<!DOCTYPE html> {% load static %}
 <html lang="en">
 
 
@@ -31,29 +29,25 @@
                 <p class="detail">Course:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{s.section}}</p>
                 <p class="detail">Sex:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{s.gender}}</p>
                 {% endfor %}
-
             </div>
-
-
-
-
         </div>
 
-        <br>
+        {% for s in name %}
         <div class="option">
-            <h1 class="heads">Course Option</h1>
-            <hr>
-            <button class="drop"><a id="drop" href="#" style="text-decoration: none;">Drop Course</a></button>
+            <h1 class="heads">Platoon</h1>
+            <p class="estatus">{{s.platoon}}</p>
+
 
         </div>
 
         <div class="status">
             <h1 class="heads">Enrollment Status</h1>
-            <hr> {% for s in name %}
+            <hr>
             <p class="estatus">{{s.status}}</p>
-            {% endfor %}
+
 
         </div>
+        {% endfor %}
 
 
     </div>
