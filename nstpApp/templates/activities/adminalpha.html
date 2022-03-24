@@ -108,7 +108,7 @@
                                     <button class="pdf" disabled><a style="text-decoration:none" href="{{file.pdf.url}}" target="__blank">DOWNLOAD</a></button> {% endif %}
 
                                 </td>
-                                <td><button class="delete" disabled><a style="text-decoration:none" href="{% url 'activities:alpha_delete' file.id %}" target="__blank">DELETE</a></button></td>
+                                <td><button class="delete" disabled><a style="text-decoration:none" href="{% url 'activities:alpha_delete' file.id %}" >DELETE</a></button></td>
 
                             </tr>
                             {% endfor %}
