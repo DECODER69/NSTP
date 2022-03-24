@@ -1,0 +1,1 @@
+web gunicorn NSTP.wsgi:application --log-file -
