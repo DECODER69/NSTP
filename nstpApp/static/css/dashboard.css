@@ -30,29 +30,28 @@ p {
 
 .profile {
     background-color: #ffffff;
-    height: 30vh;
-    width: 40%;
+    /* height: 30vh;
+    width: 19%;
     margin: auto;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
-.option {
+.platoon {
     background-color: #ffffff;
-    height: 30vh;
-    width: 25%;
+    /* height: 30vh;
+    width: 19%;
     margin: auto;
     display: inline-block;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
-.drop {
-    background-color: #ffffff91;
-    height: 8vh;
-    width: 45%;
+.attendance {
+    background-color: #ffffff;
+    /* height: 30vh;
+    width: 19%;
     margin: auto;
-    border-radius: 10px;
-    display: flex;
-    margin-top: 30px;
+    display: inline-block;
+    border-radius: 10px; */
 }
 
 #drop {
@@ -65,10 +64,10 @@ p {
 
 .status {
     background-color: #ffffff;
-    height: 30vh;
-    width: 25%;
+    /* height: 30vh;
+    width: 19%;
     margin: auto;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
 .estatus {
@@ -83,9 +82,17 @@ p {
     padding: 3px;
 }
 
+.grades {
+    background-color: #ffffff;
+    /* height: 30vh;
+    width: 19%;
+    margin: auto; */
+    /* border-radius: 10px; */
+}
+
 .left {
     float: left;
-    width: 50%;
+    width: 100%;
 }
 
 .right {
@@ -275,4 +282,42 @@ body {
 .carousel-inner {
     width: 100%;
     max-height: 600px;
+}
+
+.top {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+
+@media screen and (max-width:1100px) {
+    .top {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .top {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .top {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+    }
 }
