@@ -18,7 +18,7 @@
 <body>
     {% include 'activities/base.html' %}
 
-
+    <h1> {{ cnt }}</h1>
     <!-- table -->
 
     <div class="container">
@@ -31,22 +31,22 @@
 
                 </form>
                 <br>
-                <br>
+
 
                 <table class="table1 table table-striped" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID No.</th>
                             <th scope="col">Fullname</th>
-                            <th scope="col">Course</th>
+                            <th>Course</th>
+                            <th>Platoon</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for i in list %}
                         <tr>
-                            <th scope="row">{{i.username}}</th>
-                            <td>{{i.fname}} {{i.lname}}</td>
+                            <th scope="row">{{i.fname}} {{i.lname}}</th>
                             <td>{{i.section}}</td>
+                            <td>{{i.platoon}}</td>
                             <br>
                         </tr>
                         {% endfor %}

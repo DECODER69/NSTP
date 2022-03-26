@@ -19,6 +19,7 @@
     {% include 'activities/NavAdmin.html' %}
 
 
+
     <!-- table -->
 
     <div class="container">
@@ -31,25 +32,22 @@
 
                 </form>
                 <br>
-                <br>
 
                 <table class="table1 table table-striped" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
                     <thead class="thead-dark">
                         <tr class="heads">
-
                             <th scope="col">Fullname</th>
-                            <th scope="col">Course</th>
-                            <th scope="col">Email</th>
+                            <th>Course</th>
+                            <th>Email</th>
 
-                            <th scope="col">Enrollment Status</th>
-                            <th scope="col">Action</th>
+                            <th>Enrollment Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for i in rlist %}
                         <tr>
-
-                            <td scope="row">{{i.fname}} {{i.lname}}</td>
+                            <th scope="row">{{i.fname}} {{i.lname}}</th>
                             <td>{{i.section}}</td>
                             <td>{{i.email}}</td>
 

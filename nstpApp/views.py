@@ -1,3 +1,4 @@
+from dataclasses import field
 from os import name
 from pyexpat.errors import messages
 from django.contrib import messages 
@@ -66,21 +67,69 @@ def indexcard4(request):
 def rotclist(request):
     list = extenduser.objects.filter(field='ROTC').filter(status='ENROLLED')
     return render(request, 'activities/rotclist.html', {'list': list})
+def cnt(request):
+    cnt = extenduser.objects.filter(field='ROTC').count()
+    return render(request, 'activities/rotclist.html', {'cnt': cnt})
+
 def cwtslist(request):
     list1 = extenduser.objects.filter(field='CWTS')
     return render(request, 'activities/cwtslist.html', {'list1': list1})
 
 def adminrotclist(request):
-    rlist = extenduser.objects.filter(field='ROTC').filter(status='PENDING').count()
+    rlist = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
     return render(request, 'activities/adminrotclist.html', {'rlist': rlist})
 
 def admincwtslist(request):
     clist = extenduser.objects.filter(field='CWTS').filter(status='PENDING')
     return render(request, 'activities/admincwtslist.html', {'clist': clist})
 
+
+
 def enrolledrotc(request):
-    enrolled = extenduser.objects.filter(field='ROTC').filter(status='ENROLLED')
-    return render(request, 'activities/enrolledrotc.html', {'enrolled': enrolled})
+    
+    count1 = extenduser.objects.filter(platoon='Alpha').filter(status='ENROLLED').count
+    count2 = extenduser.objects.filter(platoon='Bravo').filter(status='ENROLLED').count
+    count3 = extenduser.objects.filter(platoon='Charlie').filter(status='ENROLLED').count
+    count4 = extenduser.objects.filter(platoon='Delta').filter(status='ENROLLED').count
+    count5 = extenduser.objects.filter(platoon='Echo').filter(status='ENROLLED').count
+    count6 = extenduser.objects.filter(platoon='Foxtrot').filter(status='ENROLLED').count
+    count7 = extenduser.objects.filter(platoon='Golf').filter(status='ENROLLED').count
+    count8 = extenduser.objects.filter(platoon='Hotel').filter(status='ENROLLED').count
+    count9 = extenduser.objects.filter(platoon='India').filter(status='ENROLLED').count
+    count10 = extenduser.objects.filter(platoon='Juliet').filter(status='ENROLLED').count
+    count11 = extenduser.objects.filter(platoon='Kilo').filter(status='ENROLLED').count
+    count12 = extenduser.objects.filter(platoon='Lima').filter(status='ENROLLED').count
+    sheesh = extenduser.objects.filter(status='ENROLLED')
+    context = {
+        'count1': count1,
+        'count2': count2,
+        'count3': count3,
+        'count4': count4,
+        'count5': count5,
+        'count6': count6,
+        'count7': count7,
+        'count8': count8,
+        'count9': count9,
+        'count10': count10,
+        'count11': count11,
+        'count12': count12,
+        'sheesh': sheesh,
+        
+    }
+    return render(request, 'activities/enrolledrotc.html', context)
+
+
+
+def grades_alpha(request):
+    grades = extenduser.objects.filter(platoon='Alpha')
+    context = {
+        'grades': grades,
+    }
+    return render (request, 'activities/grades_alpha.html', context)
+    
+    
+
+
 
 
 
@@ -189,16 +238,11 @@ def student_lima(request):
 
 
 
-#                   admin
-def platooncount(request):
-    pass
+# #                   admin
+# def platooncount(request):
+#     pass
 
-def alphacount(request):
-    c_alpha = extenduser.objects.filter(platoon = 'Alpha').count()
-    context = {
-        'c_alpha': c_alpha
-    }
-    return redirect('/enrolledrotc', context)
+
 
 
 def adminlogin(request):
@@ -334,58 +378,7 @@ def registerprocess(request):
 
     
 
-# def registerprocess(request):
-#     if request.method == 'POST':
-#         idnum=request.POST['idnum']
-#         lname=request.POST.get('last_name')
-#         fname=request.POST.get('first_name')
-#         minitial=request.POST.get('middle')
-#         address=request.POST.get('address')
-#         cpnumber=request.POST.get('contact')
-#         email=request.POST.get('email')
-#         gender=request.POST.get('gender')
-#         age=request.POST.get('age')
-#         bdate=request.POST.get('birthday')
-#         password=request.POST.get('password')
-#         section=request.POST.get('section')
-#         field=request.POST.get('field')
-        
-#     try:
-#         create = registration.objects.create(idnum=idnum, lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
-#         password=password, section=section, field=field)
-#         create.save()
-#         return render(request, 'activities/login.html')
-#     except:
-#         messages.error(request, 'Invalid Inputs! Please Check it and Try Again')
-#         return render(request, 'activities/signup.html')
-        
-    #  else:
-    #      return render(request, 'activities/signup.html')
-        
-# def userlogin(request):
-#     if request.method=="POST":
-#         m=sql.connect(host="localhost",user="root",password="",database='nstpsystem')
-#         cursor=m.cursor()
-#         d=request.POST
-#         for key,value in d.items():
-#             if key=="username":
-#                 idnum=value
-#             if key=="password":
-#                 password=value
-        
-#         c="select * from nstpapp_registration where idnum='{}' and password='{}'".format(idnum,password)
-        
-#         cursor.execute(c)
-#         t=tuple(cursor.fetchall())
-#         if t==():
-#             messages.error(request, 'Invalid username or password')
-#             return render(request, 'activities/login.html')
-            
-#         else:
-#             # name = registration.objects.filter(idnum=idnum)
-#             return render(request, 'activities/Dashboard.html')
 
-#     return render(request, 'activities/login.html')
 def userlogin(request):
     if request.method == 'POST':
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
@@ -508,9 +501,11 @@ def enrollupdate(request):
     return redirect('/adminrotclist')
 
 def platoonupdate(request):
-    enr1 = request.POST.get('plat')
-    enr2 = request.POST.get('getID')
-    extenduser.objects.filter(id=enr2).update(platoon=enr1)
+    if request.method == 'POST':
+        enr1 = request.POST.get('plat')
+        enr2 = request.POST.get('getID')
+        grd = request.POST.get('grade')
+        extenduser.objects.filter(id=enr2).update(platoon=enr1, grades=grd)
     return redirect('/enrolledrotc')
     
 
@@ -845,6 +840,6 @@ def lima_delete(request, id):
 
 
 
-# DELETION FOR IMAGES
+# DELETION FOR ENROLLED
 
                          # END PLATOON DELETE

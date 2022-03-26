@@ -19,6 +19,7 @@
 <body style="background-color: rgb(177, 177, 177);">
     {% include 'activities/base.html' %} {% block content %}
     <br>
+    <br>
     <div class="top">
         <div class="profile">
             <h1 class="heads">Student's Information</h1>
@@ -55,12 +56,15 @@
 
         <div class="grades">
             <h1 class="heads">Grade</h1>
+            <p class="estatus">{{s.grades}}</p>
 
         </div>
         {% endfor %}
 
 
     </div>
+
+
 
 
 

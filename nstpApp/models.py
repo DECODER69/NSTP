@@ -42,6 +42,16 @@ class extenduser(models.Model):
     ("PENDING", "PENDING"),
     ("ENROLLED", "ENROLLED"),
     )
+    
+    GRADE = (
+        ("PENDING", "PENDING"),
+        ("1", "1"),
+        ("2", "2"),
+        ("3", "3"),
+        ("4", "4"),
+        ("5", "5"),
+        
+    )
 
     field_rotc = 0
     field_cwts = 1
@@ -58,6 +68,7 @@ class extenduser(models.Model):
     age = models.DecimalField(max_digits=3, decimal_places=0)
     bdate = models.CharField(max_length=15, default='')
     password = models.CharField(max_length=20)
+    grades = models.CharField(max_length=20, choices=GRADE, default='PENDING')
     section = models.CharField(max_length=20, default='')
     field = models.CharField(max_length=20, default='')
     status = models.CharField(max_length=10, choices=STATUS, default='PENDING')

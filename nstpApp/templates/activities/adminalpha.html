@@ -124,6 +124,34 @@
         </form>
 
     </div>
+    <br> <br> <br>
+    <h1 style="text-align: center; margin:auto;">Student Grade</h1>
+    <div class="hehe">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Full name</th>
+                    <th>Course</th>
+                    <th>Email</th>
+                    <th>Platoon</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for k in grades %}
+                <tr>
+                    <th scope="row">{{k.fname}}  {{k.lname}}</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+
 
 
 
