@@ -31,28 +31,27 @@ p {
 .profile {
     background-color: #ffffff;
     height: 30vh;
-    width: 40%;
+    width: 19%;
     margin: auto;
     border-radius: 10px;
 }
 
-.option {
+.platoon {
     background-color: #ffffff;
     height: 30vh;
-    width: 25%;
+    width: 19%;
     margin: auto;
     display: inline-block;
     border-radius: 10px;
 }
 
-.drop {
-    background-color: #ffffff91;
-    height: 8vh;
-    width: 45%;
+.attendance {
+    background-color: #ffffff;
+    height: 30vh;
+    width: 19%;
     margin: auto;
+    display: inline-block;
     border-radius: 10px;
-    display: flex;
-    margin-top: 30px;
 }
 
 #drop {
@@ -66,7 +65,7 @@ p {
 .status {
     background-color: #ffffff;
     height: 30vh;
-    width: 25%;
+    width: 19%;
     margin: auto;
     border-radius: 10px;
 }
@@ -83,9 +82,17 @@ p {
     padding: 3px;
 }
 
+.grades {
+    background-color: #ffffff;
+    height: 30vh;
+    width: 19%;
+    margin: auto;
+    border-radius: 10px;
+}
+
 .left {
     float: left;
-    width: 50%;
+    width: 100%;
 }
 
 .right {
