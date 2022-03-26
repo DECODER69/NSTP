@@ -24,6 +24,7 @@ from django.contrib.auth import authenticate
 from .forms import certificationsForm
 from django.http import FileResponse
 
+
 idnum=''
 password=''
 
@@ -70,7 +71,7 @@ def cwtslist(request):
     return render(request, 'activities/cwtslist.html', {'list1': list1})
 
 def adminrotclist(request):
-    rlist = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
+    rlist = extenduser.objects.filter(field='ROTC').filter(status='PENDING').count()
     return render(request, 'activities/adminrotclist.html', {'rlist': rlist})
 
 def admincwtslist(request):
@@ -128,46 +129,57 @@ def student_alpha(request):
     alpha_display = alphamodel.objects.all()
     return render(request, 'activities/alpha.html', {'alpha_display': alpha_display})
 
+
+@login_required(login_url='/login')
 def student_bravo(request):
     bravo_display = bravomodel.objects.all()
     return render(request, 'activities/bravo.html', {'bravo_display': bravo_display})
 
+@login_required(login_url='/login')
 def student_charlie(request):
     charlie_display = charliemodel.objects.all()
     return render(request, 'activities/charlie.html', {'charlie_display': charlie_display})
 
+@login_required(login_url='/login')
 def student_delta(request):
     delta_display = deltamodel.objects.all()
     return render(request, 'activities/delta.html', {'delta_display': delta_display})
 
+@login_required(login_url='/login')
 def student_echo(request):
     echo_display = echomodel.objects.all()
     return render(request, 'activities/echo.html', {'echo_display': echo_display})
 
+@login_required(login_url='/login')
 def student_foxtrot(request):
     foxtrot_display = foxtrotmodel.objects.all()
     return render(request, 'activities/foxtrot.html', {'foxtrot_display': foxtrot_display})
 
+@login_required(login_url='/login')
 def student_golf(request):
     golf_display = golfmodel.objects.all()
     return render(request, 'activities/golf.html', {'golf_display': golf_display})
 
+@login_required(login_url='/login')
 def student_hotel(request):
     hotel_display = hotelmodel.objects.all()
     return render(request, 'activities/hotel.html', {'hotel_display': hotel_display})
-
+@login_required(login_url='/login')
 def student_india(request):
     india_display = indiamodel.objects.all()
     return render(request, 'activities/india.html', {'india_display': india_display})
 
+@login_required(login_url='/login')
 def student_juliet(request):
     juliet_display = julietmodel.objects.all()
     return render(request, 'activities/juliet.html', {'juliet_display': juliet_display})
 
+@login_required(login_url='/login')
 def student_kilo(request):
     kilo_display = kilomodel.objects.all()
     return render(request, 'activities/kilo.html', {'kilo_display': kilo_display})
 
+@login_required(login_url='/login')
 def student_lima(request):
     lima_display = limamodel.objects.all()
     return render(request, 'activities/lima.html', {'lima_display': lima_display})
@@ -181,8 +193,17 @@ def student_lima(request):
 def platooncount(request):
     pass
 
+def alphacount(request):
+    c_alpha = extenduser.objects.filter(platoon = 'Alpha').count()
+    context = {
+        'c_alpha': c_alpha
+    }
+    return redirect('/enrolledrotc', context)
+
+
 def adminlogin(request):
     return render(request, 'activities/login-admin.html')
+
 
 def admindashboard(request):
     imagex=carousel.objects.all()
