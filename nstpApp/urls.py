@@ -49,6 +49,7 @@ urlpatterns = [
     path('adminrotclist/', views.adminrotclist, name='adminrotclist'),
     path('enrolledrotc/', views.enrolledrotc, name='enrolledrotc'),
     path('platoonupdate/', views.platoonupdate, name='platoonupdate'),
+    path('alphacount/', views.alphacount, name='alphacount'),
 
     path('admincwts/', views.admincwts, name='admincwts'),
     path('cwtsupload/', views.cwtsupload, name='cwtsupload'),

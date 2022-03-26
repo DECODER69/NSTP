@@ -73,7 +73,7 @@ class extenduser(models.Model):
     
     def __str__(self):
     
-        return self.idnum
+        return self.email
     
 
     

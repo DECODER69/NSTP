@@ -135,7 +135,12 @@ nav {
     display: inline-flex;
 }
 
-.title {}
+.title {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+}
 
 
 /*Window size: tablet and phone*/
