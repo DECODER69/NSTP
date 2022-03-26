@@ -115,6 +115,7 @@ def certification(request):
 
 
 
+@login_required(login_url='/login')
 def admincwts(request):
     fetch = cwts.objects.all()
     return render(request, 'activities/admincwts.html', {'fetch': fetch})
@@ -122,6 +123,7 @@ def admincwts(request):
 
 #                   STUDENT PLATOON DISPLAY
 
+@login_required(login_url='/login')
 def student_alpha(request):
     alpha_display = alphamodel.objects.all()
     return render(request, 'activities/alpha.html', {'alpha_display': alpha_display})

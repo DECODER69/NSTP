@@ -113,12 +113,18 @@ nav {
     color: #ffffff;
     font-size: 30px;
     text-align: center;
-    display: ;
+    padding: 5px;
 }
 
 .stats {
     width: 100%;
     background-color: rgb(107, 116, 116);
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .cards {
