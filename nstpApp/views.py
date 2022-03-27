@@ -160,7 +160,7 @@ def userlogout(request):
 
 @login_required(login_url='/login')
 def certification(request):
-    requests = certifications.objects.all()
+    requests = extenduser.objects.filter(user = request.user).filter(status='ENROLLED')
     return render(request, 'activities/certification.html', {'requests': requests})
 
 
@@ -265,24 +265,26 @@ def pdf(request, id):
     ss = certifications.objects.get(id=id)
     return render(request, 'activities/certificate.html', {'ss': ss})
     
-def certi(request):
-    if request.method == 'POST':
-        pd = request.post.GET('pdfbtn')
-        return render(request, 'activities/certificate.html', {'pd': pd})
-    return render(request, 'activities/certificate.html')
+
 
 
 def admincertificate(request):
-    request1 = certifications.objects.all()
+    request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='')
     return render(request, 'activities/admincertification.html', {'request1': request1})
 
 def navadmin(request):
     return render(request, 'activities/NavAdmin.html')
 
-def pdfb(request):
+def pdfb(request, id):
+    namess = extenduser.objects.filter(id=id)
+    return render(request, 'activities/certificate.html', {'namess': namess})
+
+
+def certi(request):
     if request.method == 'POST':
-        pdfbt=request.POST.get('pdfbtn')
-        return render(request, 'activities/certificate.html', {'pdfbt': pdfbt})
+        pd = request.post.GET('pdfbtn')
+        return render(request, 'activities/certificate.html', {'pd': pd})
+    return render(request, 'activities/certificate.html')
 
 # admin platoon display
 
@@ -437,15 +439,10 @@ def admin2(request):
 # @login_required(login_url='/login/')
 def cert(request):
     if request.method == 'POST':
-        cert_email = request.POST.get('cert_email')
-        cert_fullname = request.POST.get('cert_fullname')
-        cert_course = request.POST.get('cert_course')
         cert_datereq = request.POST.get('cert_datereq')
         cert_document = request.POST.get('cert_document')
-
-        certificate = certifications.objects.create(cert_email=cert_email, cert_fullname=cert_fullname, cert_course=cert_course, cert_datereq=cert_datereq, cert_document=cert_document)
-        certificate.save()
-        return redirect('/certification')
+        certificate = extenduser.objects.update(cert_datereq=cert_datereq, cert_document=cert_document, cert_status='PENDING')
+        return redirect('/certification', {'certificate': certificate})
        
         
        
@@ -490,7 +487,7 @@ def deleteform(request):
 def update(request):
     stat1 = request.POST.get('status')
     stat2 = request.POST.get('getID')
-    certifications.objects.filter(id=stat2).update(cert_status=stat1)
+    extenduser.objects.filter(id=stat2).update(cert_status=stat1)
     print(stat1, stat2)
     return redirect('/admincertificate')
 
