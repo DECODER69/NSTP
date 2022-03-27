@@ -1,0 +1,84 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<body>
+    {% include 'activities/base.html' %}<br>
+    <h1>Profile Edit</h1>
+    <div class="prof">
+        <form action="{% url 'activities:profile' %}" method="POST">
+            {% csrf_token %}
+            
+            {% for e in edit %}
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" value="{{e.fname}}" name="firstn" disabled>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" Value="{{e.lname}}" disabled>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" value="{{e.minitial}}" disabled>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" value="{{e.address}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="BIRTHDAY" disabled>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="ID NUMBER" disabled>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Age" disabled>
+                </div>
+
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Email" disabled>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Phone Number">
+                </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Field" disabled>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Course and Section">
+                </div>
+
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <br>
+            {% endfor %}
+        </form>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+
+</html>

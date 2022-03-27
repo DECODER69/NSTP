@@ -22,14 +22,16 @@ p {
 }
 
 .heads {
-    background-color: rgb(8, 69, 80);
-    color: #ffffff;
+    background-color: rgb(8, 10, 11);
+    color: #cdcdcd;
     text-align: center;
     font-size: 28px;
 }
 
 .profile {
     background-color: #ffffff;
+    height: 200px;
+    border-radius: 10px;
     /* height: 30vh;
     width: 19%;
     margin: auto;
@@ -38,6 +40,7 @@ p {
 
 .platoon {
     background-color: #ffffff;
+    border-radius: 10px;
     /* height: 30vh;
     width: 19%;
     margin: auto;
@@ -46,6 +49,7 @@ p {
 }
 
 .attendance {
+    border-radius: 10px;
     background-color: #ffffff;
     /* height: 30vh;
     width: 19%;
@@ -64,6 +68,7 @@ p {
 
 .status {
     background-color: #ffffff;
+    border-radius: 10px;
     /* height: 30vh;
     width: 19%;
     margin: auto;
@@ -73,6 +78,8 @@ p {
 .estatus {
     color: #000000;
     font-size: 30px;
+    font-weight: bolder;
+    margin-top: 60px;
     text-align: center;
 }
 
@@ -84,6 +91,7 @@ p {
 
 .grades {
     background-color: #ffffff;
+    border-radius: 10px;
     /* height: 30vh;
     width: 19%;
     margin: auto; */

@@ -832,7 +832,12 @@ def lima_delete(request, id):
         return redirect('/d_lima')
     return render(request, 'activities/limadel.html')
 
-
+def profile(request):
+    edit = extenduser.objects.filter(user=request.user)
+    if request.method =='POST':
+        first = request.POST.get('firstn')
+        extenduser.objects.filter(user=request.user).update(fname=first)
+    return render (request, 'activities/profile.html', {'edit':edit})
 
 
 
@@ -840,3 +845,5 @@ def lima_delete(request, id):
 # DELETION FOR ENROLLED
 
                          # END PLATOON DELETE
+                         
+                         
