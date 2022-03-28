@@ -835,8 +835,8 @@ def lima_delete(request, id):
 def profile(request):
     edit = extenduser.objects.filter(user=request.user)
     if request.method =='POST':
-        first = request.POST.get('firstn')
-        extenduser.objects.filter(user=request.user).update(fname=first)
+        address = request.POST.get('address')
+        extenduser.objects.filter(user=request.user).update(address=address)
     return render (request, 'activities/profile.html', {'edit':edit})
 
 

@@ -66,7 +66,7 @@
                                 <td><input type="hidden" name="getID" value="{{k.id}}"><button class="update" id="submit" onclick="sweetalert()" type="submit">Update</button>
                                     <button class="delete" disabled><a href="{% url 'activities:delete' k.id %}" id="delete" style="text-decoration: none;" name="delete">Delete</a></button>
 
-                                    <button class="pdf" disabled><a href="{% url 'activities:pdfb' k.id%}" style="text-decoration: none;" name="pdfbtn">PDF</a></button>
+                                    <button class="pdf" disabled><a href="{% url 'activities:pdfb' k.id%}" style="text-decoration: none;" name="pdfbtn" target="_top">PDF</a></button>
 
                                 </td>
 

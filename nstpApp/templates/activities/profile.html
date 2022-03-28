@@ -15,61 +15,58 @@
     <h1>Profile Edit</h1>
     <div class="prof">
         <form action="{% url 'activities:profile' %}" method="POST">
-            {% csrf_token %}
-            
-            {% for e in edit %}
+            {% csrf_token %} {% for e in edit %}
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="First name" value="{{e.fname}}" name="firstn" disabled>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" Value="{{e.lname}}" disabled>
+                    <input type="text" class="form-control" name="lastn" Value="{{e.lname}}" disabled>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" value="{{e.minitial}}" disabled>
+                    <input type="text" class="form-control" value="{{e.minitial}}" disabled name="minitial">
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" value="{{e.address}}">
+                    <input type="text" class="form-control" value="{{e.address}}" name="address">
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="BIRTHDAY" disabled>
+                    <input type="text" class="form-control" placeholder="BIRTHDAY" disabled value="{{e.bdate}}">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="ID NUMBER" disabled>
+                    <input type="text" class="form-control" placeholder="ID NUMBER" disabled value="{{e.username}}">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Age" disabled>
+                    <input type="text" class="form-control" placeholder="Age" disabled value="{{e.age}}">
                 </div>
 
             </div><br>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Email" disabled>
+                    <input type="text" class="form-control" placeholder="Email" disabled value="{{e.email}}">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Phone Number">
+                    <input type="text" class="form-control" placeholder="Phone Number" value="{{e.cpnumber}}">
                 </div>
 
             </div>
             <br>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Field" disabled>
+                    <input type="text" class="form-control" placeholder="Field" disabled value="{{e.field}}">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Course and Section">
+                    <input type="text" class="form-control" placeholder="Course and Section" value="{{e.section}}">
                 </div>
 
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Save</button>
-            <br>
-            {% endfor %}
+            <br> {% endfor %}
         </form>
     </div>
 
