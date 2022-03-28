@@ -14,20 +14,6 @@
     margin: auto;
 }
 
-body {
-    background-color: rgb(255, 255, 255);
-}
-
-.line1 {
-    border: solid 2px #000000;
-}
-
-h1 {
-    font-size: 300px;
-}
-
-
-
 .outer {
 	width:790px;
 	height:590px;
