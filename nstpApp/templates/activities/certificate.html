@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
-    <link rel="stylesheet" href="{% static 'css_admin/certificate.css' %}">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/certificate.css' %}">
 </head>
 
 <body>
 
     <button onclick="window.print()">Download</button><br>
 
-    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878" id="cert">
+    <!-- <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878" id="cert">
         <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
             <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
             <br><br>
@@ -26,10 +26,10 @@
             <span style="font-size:25px"><i>dated</i></span><br> #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
             <span style="font-size:30px">$dt</span> {% endfor %}
         </div>
-    </div>
+    </div> -->
 
 
-    <div class="outer">
+    <div class="outer" id="outer">
 
         <div class="inner2">
 
@@ -38,11 +38,11 @@
 
 
                 <div id="img1">
-                    <img src="236.png">
+                    <img src="{% static 'image/236.png' %}">
                 </div>
 
                 <div id="img2">
-                    <img src="236.png">
+                    <img src="{% static 'image/lowop.png' %}">
                 </div>
 
                 <!-- <div class="background">
@@ -78,14 +78,14 @@
 				<span class="dated" ><i>dated</i></span><br>
 				<span class="date"> <i> #set (("MMMM dd, yyyy")) </i> </span>
 			       -->
-s
+                s
             </div>
 
 
-		</div>
-		
-	</div>
-    
+        </div>
+
+    </div>
+
 
 
 
