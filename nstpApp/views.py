@@ -269,7 +269,8 @@ def pdf(request, id):
 
 
 def admincertificate(request):
-    request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='')
+    request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='').filter(cert_status='PENDING')
+        
     return render(request, 'activities/admincertification.html', {'request1': request1})
 
 def navadmin(request):
@@ -441,17 +442,21 @@ def cert(request):
     if request.method == 'POST':
         cert_datereq = request.POST.get('cert_datereq')
         cert_document = request.POST.get('cert_document')
-        certificate = extenduser.objects.update(cert_datereq=cert_datereq, cert_document=cert_document, cert_status='PENDING')
+        certificate = extenduser.objects.filter(user = request.user).filter(status = 'ENROLLED').update(cert_datereq=cert_datereq, cert_document=cert_document, cert_status='PENDING')
         return redirect('/certification', {'certificate': certificate})
-       
-        
-       
+
 def logout_user(request):
     logout(request)
     return redirect('/')
 
 
-
+def delete_request(request):
+    if request.method == 'POST':
+        cert_datereq = request.POST.get('docum')
+        cert_document = request.POST.get('datereq')
+        certificate = extenduser.objects.filter(status = 'ENROLLED').update(cert_datereq=cert_datereq, cert_document=cert_document, cert_status='PENDING')
+        return redirect('/certification', {'certificate': certificate})
+    
 # def updatestatus(request, cert_email):
 #     data = certifications.objects.get(id=cert_email)
 #     form = request.POST(instance=data)
@@ -836,14 +841,15 @@ def profile(request):
     edit = extenduser.objects.filter(user=request.user)
     if request.method =='POST':
         address = request.POST.get('address')
-        extenduser.objects.filter(user=request.user).update(address=address)
+        cpnumber = request.POST.get('cpnumber')
+        section = request.POST.get('section')
+        extenduser.objects.filter(user=request.user).update(address=address, cpnumber=cpnumber, section=section)
     return render (request, 'activities/profile.html', {'edit':edit})
 
 
 
 
-# DELETION FOR ENROLLED
+    
 
-                         # END PLATOON DELETE
                          
                          
