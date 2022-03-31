@@ -270,7 +270,6 @@ def pdf(request, id):
 
 def admincertificate(request):
     request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='').filter(cert_status='PENDING')
-        
     return render(request, 'activities/admincertification.html', {'request1': request1})
 
 def navadmin(request):
@@ -361,11 +360,12 @@ def registerprocess(request):
             password=request.POST.get('password')
             section=request.POST.get('section')
             field=request.POST.get('field')
+            picture = request.FILES['picture']
             
             user = User.objects.create_user(username=username, password=password,)
             
             newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
-         password=password, section=section, field=field, user=user)
+         password=password, section=section, field=field, user=user, picture=picture)
             newextenduser.save()
             auth.login(request, user)
             return render(request, 'activities/login.html')

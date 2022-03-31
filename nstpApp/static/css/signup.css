@@ -20,6 +20,16 @@ body {
     min-height: 100vh;
 }
 
+#profilepic {
+    display: block;
+}
+
+#lab {
+    margin: auto;
+    display: flex;
+    text-align: center;
+}
+
 .dropdowns {
     width: 100%;
     height: 40px;
