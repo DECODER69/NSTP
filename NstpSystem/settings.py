@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
-import dj_database_url
+
+
 
 import os
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -142,7 +142,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS=[(os.path.join(BASE_DIR,'static'))]
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-django_heroku.settings(locals())
+
 
 
 # Default primary key field type
