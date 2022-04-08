@@ -1,11 +1,11 @@
-.pdf {
-    background-color: rgb(6, 109, 206);
-    height: 40px;
+.pdfs {
+    height: 30px;
     border: solid 1px #000000;
     width: 150px;
     border-radius: 5px;
     margin: auto;
     display: flex;
+    background-color: #000000!important;
 }
 
 .pdf a {
