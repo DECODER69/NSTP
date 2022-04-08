@@ -157,11 +157,11 @@ p {
 }
 
 .pdf {
-    background-color: rgb(19, 141, 60);
-    height: 40px;
+    background-color: rgb(9, 83, 58);
+    height: 35px;
     border: solid 1px #000000;
     width: 150px;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: auto;
     display: flex;
 }
@@ -180,10 +180,10 @@ p {
 
 .delete {
     background-color: rgb(189, 30, 30);
-    height: 40px;
+    height: 35px;
     border: solid 1px #000000;
     width: 150px;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: auto;
     display: flex;
 }
@@ -194,6 +194,10 @@ p {
     color: #ffffff;
     display: flex;
     margin: auto;
+}
+
+.delete a:hover {
+    color: rgb(230, 230, 230);
 }
 
 .it #uploader .docErr {

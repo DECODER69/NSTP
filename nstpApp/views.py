@@ -340,36 +340,120 @@ def d_alpha(request):
 
 def d_bravo(request):
     bravo_display = bravomodel.objects.all()
-    return render(request, 'activities/adminbravo.html', {'bravo_display': bravo_display})
+    bravo_grade = extenduser.objects.filter(platoon='Bravo')
+    context = {
+        'bravo_display': bravo_display,
+        'bravo_grade': bravo_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('bravo_id')
+        b_grades = request.POST.get('b_grades')
+        b_grades1 = request.POST.get('b_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=b_grades, grades1=b_grades1)
+    return render(request, 'activities/adminbravo.html', context)
 
 def d_charlie(request):
     charlie_display=charliemodel.objects.all()
-    return render(request, 'activities/admincharlie.html', {'charlie_display': charlie_display})
+    charlie_grade = extenduser.objects.filter(platoon='Charlie')
+    context = {
+        'charlie_display': charlie_display,
+        'charlie_grade': charlie_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('charlie_id')
+        c_grades = request.POST.get('c_grades')
+        c_grades1 = request.POST.get('c_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=c_grades, grades1=c_grades1)
+    return render(request, 'activities/admincharlie.html', context)
+
 def d_delta(request):
     delta_display = deltamodel.objects.all()
-    return render(request, 'activities/admindelta.html', {'delta_display': delta_display})
+    delta_grade = extenduser.objects.filter(platoon='Delta')
+    context = {
+        'delta_display': delta_display,
+        'delta_grade': delta_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('delta_id')
+        d_grades = request.POST.get('d_grades')
+        d_grades1 = request.POST.get('d_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=d_grades, grades1=d_grades1)
+    return render(request, 'activities/admindelta.html', context)
 
 def d_echo(request):
     echo_display = echomodel.objects.all()
-    return render(request, 'activities/adminecho.html', {'echo_display': echo_display})
+    echo_grade = extenduser.objects.filter(platoon='Echo')
+    context = {
+        'echo_display': echo_display,
+        'echo_grade': echo_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('echo_id')
+        e_grades = request.POST.get('e_grades')
+        e_grades1 = request.POST.get('e_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=e_grades, grades1=e_grades1)
+    return render(request, 'activities/adminecho.html', context)
+
 def d_foxtrot(request):
     foxtrot_display = foxtrotmodel.objects.all()
-    return render(request, 'activities/adminfoxtrot.html', {'foxtrot_display': foxtrot_display})
+    foxtrot_grade = extenduser.objects.filter(platoon='Foxtrot')
+    context = {
+        'foxtrot_display': foxtrot_display,
+        'foxtrot_grade': foxtrot_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('foxtrot_id')
+        f_grades = request.POST.get('f_grades')
+        f_grades1 = request.POST.get('f_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=f_grades, grades1=f_grades1)
+    return render(request, 'activities/adminfoxtrot.html', context)
 
 def d_golf(request):
     golf_display = golfmodel.objects.all()
-    return render(request, 'activities/admingolf.html', {'golf_display': golf_display})
+    golf_grade = extenduser.objects.filter(platoon='Golf')
+    context = {
+        'golf_display': golf_display,
+        'golf_grade': golf_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('golf_id')
+        g_grades = request.POST.get('g_grades')
+        g_grades1 = request.POST.get('g_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=g_grades, grades1=g_grades1)
+    
+    return render(request, 'activities/admingolf.html', context)
 
 def d_hotel(request):
     hotel_display = hotelmodel.objects.all()
-    return render(request, 'activities/adminhotel.html', {'hotel_display': hotel_display})
+    hotel_grade = extenduser.objects.filter(platoon='Hotel')
+    context = {
+        'hotel_display': hotel_display,
+        'hotel_grade': hotel_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('hotel_id')
+        h_grades = request.POST.get('h_grades')
+        h_grades1 = request.POST.get('h_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=h_grades, grades1=h_grades1)
+    return render(request, 'activities/adminhotel.html', context)
 
 def d_india(request):
     india_display = indiamodel.objects.all()
-    return render(request, 'activities/adminindia.html', {'india_display': india_display})
+    india_grade = extenduser.objects.filter(platoon='India')
+    context = {
+        'india_display': india_display,
+        'india_grade': india_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('india_id')
+        i_grades = request.POST.get('i_grades')
+        i_grades1 = request.POST.get('i_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=i_grades, grades1=i_grades1)
+    return render(request, 'activities/adminindia.html', context)
 
 def d_juliet(request):
     juliet_display = julietmodel.objects.all()
+    india_grade = extenduser.objects.filter(platoon='Juliet')
     return render(request, 'activities/adminjuliet.html', {'juliet_display': juliet_display})
 def d_kilo(request):
     kilo_display = kilomodel.objects.all()
