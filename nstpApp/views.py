@@ -35,6 +35,9 @@ password=''
 
 # studentside
 
+def new_navbar(request):
+    return render(request, 'activities/new_navbar.html')
+
 def index(request):
     images=carousel.objects.all()
     return render(request, 'activities/index.html', {'images': images})
