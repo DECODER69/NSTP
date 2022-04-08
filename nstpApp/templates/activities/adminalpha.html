@@ -29,6 +29,7 @@
     <!-- uploads -->
     <div class="fortit">
         <form action="{% url 'activities:alpha' %}" method="POST" enctype="multipart/form-data" name="files">
+            {% csrf_token %}
 
             <div class="uploads">
 
@@ -48,7 +49,7 @@
                                 </div>
                                 <!--row-->
 
-                                {% csrf_token %}
+
                                 <div id="uploader">
                                     <div class="row uploadDoc">
                                         <div class="col-sm-3">
@@ -125,31 +126,42 @@
 
     </div>
     <br> <br> <br>
-    <h1 style="text-align: center; margin:auto;">Student Grade</h1>
-    <div class="hehe">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Full name</th>
-                    <th>Course</th>
-                    <th>Email</th>
-                    <th>Platoon</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for k in grades %}
-                <tr>
-                    <th scope="row">{{k.fname}}  {{k.lname}}</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                {% endfor %}
+    <div>
+        <h1 style="text-align: center; margin:auto;">Students Grade</h1>
+        <div class="hehe">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">FULL NAME</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Course and Section</th>
+                        <th scope="col">Grade</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in gradess %}
+                    <tr>
+                        <th scope="row">{{v.fname}} {{v.lname}}</th>
+                        <td>{{v.email}}</td>
+                        <td>{{v.section}}</td>
+                        <form action="{% url 'activities:d_alpha' %}" method="POST">
+                            {% csrf_token %}
 
-            </tbody>
-        </table>
+                            <td><input type="text" name="a_grades" value="{{v.grades}}" style="color: rgb(0, 0, 0); width:100px;">
+                                <input type="text" name="a_grades1" value="{{v.grades1}}" style="color: rgb(0, 0, 0); width:100px;">
+                            </td>
+                            <td><input type="hidden" name="getID1" value="{{v.id}}"><button class="update" id="submit" onclick="status()" type="submit"><i class="fa fa-check-circle" aria-hidden="true" style="color: rgb(8, 162, 0);">SAVE</i></button></td>
 
+                        </form>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
     </div>
 
 

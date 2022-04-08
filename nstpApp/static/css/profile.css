@@ -1,0 +1,21 @@
+.prof {
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(179, 177, 177);
+    height: auto;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.btn {
+    float: right !important;
+}

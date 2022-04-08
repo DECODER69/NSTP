@@ -48,11 +48,14 @@ urlpatterns = [
     path('admincwtslist/', views.admincwtslist, name='admincwtslist'),
     path('adminrotclist/', views.adminrotclist, name='adminrotclist'),
     path('enrolledrotc/', views.enrolledrotc, name='enrolledrotc'),
+    path('enrolledcwts/', views.enrolledcwts, name='enrolledcwts'),
     path('platoonupdate/', views.platoonupdate, name='platoonupdate'),
+    path('sectionupdate/', views.sectionupdate, name='sectionupdate'),
     # path('alphacount/', views.alphacount, name='alphacount'),
     # path('counts/', views.counts, name='counts'),
 
     path('admincwts/', views.admincwts, name='admincwts'),
+    path('cwtslist1', views.cwtslist1, name='cwtslist1'),
     path('cwtsupload/', views.cwtsupload, name='cwtsupload'),
     path('cwts_delete/<str:id>', views.cwts_delete, name='cwts_delete'),
     path('dashboardupload/', views.dashboardupload, name='dashboardupload'),
@@ -62,6 +65,7 @@ urlpatterns = [
     path('deleteform/', views.deleteform, name='deleteform'),
     path('pdf/<str:id>', views.pdf, name='pdf'),
     path('pdfb/<str:id>', views.pdfb, name='pdfb'),
+    path('profile/', views.profile, name='profile'),
     #             ADMIN PLATOON UPLOAD
     path('alpha/', views.alpha, name='alpha'),
     path('bravo/', views.bravo, name='bravo'),

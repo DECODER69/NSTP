@@ -5,27 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
+    <title></title>
     <link rel="stylesheet" href="{% static 'css_admin/certificate.css' %}">
 </head>
 
 <body>
-    <div class="line1">
-        <div class="line2">
-            <div class="line3">
-                {% comment %} {% for k in pd %} {% endcomment %}
 
-                <p>{{pd}}</p>
-
-                {% comment %} {% endfor %} {% endcomment %}
-            </div>
-
-        </div>
-
-    </div>
     <button onclick="window.print()">Download</button><br>
 
-    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878" id="cert">
+    <!-- <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878" id="cert">
         <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
             <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
             <br><br>
@@ -38,8 +26,58 @@
             <span style="font-size:25px"><i>dated</i></span><br> #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
             <span style="font-size:30px">$dt</span> {% endfor %}
         </div>
+    </div> -->
+
+
+    <div class="outer" id="outer">
+
+        <div class="inner2">
+
+
+            <div class="inner1">
+
+
+                <div id="img1">
+                    <img src="{% static 'image/236.png' %}">
+                </div>
+
+                <div id="img2">
+                    <img src="{% static 'image/lowop.png' %}">
+                </div>
+
+                <!-- <div class="background">
+				    <img src="236.png">
+				</div> -->
+                {% for j in namess %}
+
+                <span class="up1">Naval Reserve Center-National Capital Region</span><br>
+                <span class="up2">Department of Naval Science and Tactics</span><br>
+                <span class="up3">236TH NAVAL RESERVE OFFICER TRAINING CORPS UNIT</span><br>
+                <span class="up4">Technological University of the Philippines-Cavite</span><br>
+                <span class="up5">Carlos Q. Trinidad Avenue, Salawag, Dasmarinas City, Cavite</span><br><br/>
+                <span class="line1">Certificate of Completion</span><br>
+                <span class="line7"><i>is herby awarded to</i></span><br>
+                <span class="line8"><i>{{j.fname}} {{j.lname}}</i></span><br>
+                <span class="line9"><i>for having satisfactory completed the prescribed</i></span><br>
+                <span class="line10"><i>Program of Instruction (POI) of MS1 and MS2 for Basic</i></span><br>
+
+                <span class="line11">NAVAL RESERVE OFFICERS TRAINING COURSE (NROTC)</span><br>
+                <span class="line12"><i>Given this xx day of Month xxxx at TUP-Cavite, Carlos Q. Trinidad Avenue, Salawag, Dasmarinas City, Cavite</i></span><br>
+                <div class="bot">
+                    <span class="lastline"> <u>CDR JERMIAS AHMED A SIBAL</u>&emsp; <u>PN	REMEDIOS H FALLESGON</u>&emsp;<u>236-20-0001</u></span>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
     </div>
-    
+
+
+
+
+
+
 
 </body>0
 
