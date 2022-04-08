@@ -20,7 +20,7 @@ from .models import  extenduser, certifications, alphamodel, bravomodel, charlie
 # Register your models here.
 
 admin.site.register(extenduser)
-admin.site.register(certifications)
+# admin.site.register(certifications)
 admin.site.register(alphamodel)
 admin.site.register(bravomodel)
 admin.site.register(charliemodel)

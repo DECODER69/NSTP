@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate</title>
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="{% static 'css_admin/certificate.css' %}">
 </head>
 
 <body>
@@ -23,8 +23,24 @@
         </div>
 
     </div>
+    <button onclick="window.print()">Download</button><br>
 
+    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878" id="cert">
+        <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+            <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+            <br><br>
+            <span style="font-size:25px"><i>This is to certify that</i></span>
+            <br><br>
+            <span style="font-size:30px"><b></b></span><br/><br/>
+            <span style="font-size:25px"><i>has completed the course</i></span> <br/><br/> {% for j in namess %}
+            <span style="font-size:30px">{{j.fname}} {{j.lname}}</span> <br/><br/>
+            <span style="font-size:20px">with score of <b>$grade.getPoints()%</b></span> <br/><br/><br/><br/>
+            <span style="font-size:25px"><i>dated</i></span><br> #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
+            <span style="font-size:30px">$dt</span> {% endfor %}
+        </div>
+    </div>
+    
 
-</body>
+</body>0
 
 </html>

@@ -1,0 +1,15 @@
+@media print {
+    body *:not(#cert):not(#cert *) {
+        visibility: hidden;
+    }
+    #cert {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+#cert {
+    align-items: center;
+    margin: auto;
+}

@@ -25,43 +25,8 @@
     <div class="container">
         <form action="{% url 'activities:cert' %}" method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@gsfe.tupcavite.edu.ph" name="cert_email">
-
-            </div>
 
 
-
-            <label for="validationCustom01">FULL NAME</label>
-            <input type="text" class="form-control" id="fname" name="cert_fullname" placeholder="Ex: Juan Dela Cruz" required>
-            <div class="invalid-feedback">
-                Please provide a valid name.
-            </div>
-
-
-
-
-
-            <label for="validationCustom04">COURSE</label>
-            <select class="custom-select" id="validationCustom04" required name="cert_course">
-                <option selected disabled="true">Choose...</option>
-                <option>BSIE</option>
-                <option>BSCE</option>
-                <option>BSEE</option>
-                <option>BSME</option>
-                <option>BTTE</option>
-                <option>BET-COET</option>
-                <option>BET-AT</option>
-                <option>BET-CT</option>
-                <option>BET-ESET</option>
-                <option>BET-ET</option>
-                <option>BET-MT</option>
-                <option>BET-PPT</option>
-            </select>
-            <div class="invalid-feedback">
-                Please select a valid state.
-            </div>
 
 
             <label for="lname">DATE REQUESTED</label><br>
@@ -82,7 +47,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Email</th>
+                            <th scope="col">NAME</th>
                             <th scope="col">DATE REQUESTED</th>
                             <th scope="col">REQUESTED DOCUMENT</th>
                             <th scope="col">STATUS</th>
@@ -91,7 +56,7 @@
                     <tbody>
                         {% for i in requests %}
                         <tr>
-                            <th scope="row">{{i.cert_email}} </th>
+                            <th scope="row">{{i.fname}} {{i.lname}}</th>
                             <td>{{i.cert_datereq}}</td>
                             <td>{{i.cert_document}}</td>
                             <td>{{i.cert_status}}</td>
