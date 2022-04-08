@@ -35,8 +35,8 @@
 
         {% for s in name %}
         <div class="platoon">
-            <h1 class="heads">Platoon</h1>
-            <h1 class="estatus">{{s.platoon}}</h1>
+            <h1 class="heads">Field</h1>
+            <h1 class="estatus">{{s.field}}({{s.platoon}})</h1>
         </div>
 
         <div class="status">
@@ -47,14 +47,11 @@
 
         </div>
 
-        <div class="attendance">
-            <h1 class="heads">Attendance</h1>
 
-        </div>
 
         <div class="grades">
             <h1 class="heads">Performace Score</h1>
-            <h1 class="estatus">{{s.grades}}</h1>
+            <h1 class="estatus">First Sem: {{s.grades}}<br>Second Sem:{{s.grades}} </h1>
 
         </div>
         {% endfor %}

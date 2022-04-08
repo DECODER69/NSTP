@@ -69,6 +69,7 @@ class extenduser(models.Model):
     bdate = models.CharField(max_length=15, default='')
     password = models.CharField(max_length=20)
     grades = models.CharField(max_length=20, choices=GRADE, default='PENDING')
+    grades1 = models.CharField(max_length=20, choices=GRADE, default='PENDING')
     section = models.CharField(max_length=20, default='')
     field = models.CharField(max_length=20, default='')
     picture = models.ImageField(upload_to='images/', null=False)

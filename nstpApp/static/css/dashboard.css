@@ -32,6 +32,7 @@ p {
     background-color: #ffffff;
     height: 200px;
     border-radius: 10px;
+    justify-content: space-between;
     /* height: 30vh;
     width: 19%;
     margin: auto;
@@ -41,6 +42,7 @@ p {
 .platoon {
     background-color: #ffffff;
     border-radius: 10px;
+    justify-content: space-between;
     /* height: 30vh;
     width: 19%;
     margin: auto;
@@ -69,6 +71,7 @@ p {
 .status {
     background-color: #ffffff;
     border-radius: 10px;
+    justify-content: space-between;
     /* height: 30vh;
     width: 19%;
     margin: auto;

@@ -16,8 +16,9 @@ from .models import alphamodel, bravomodel, charliemodel, deltamodel, echomodel,
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
+
 from django.contrib.auth.models import User, auth
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 import mysql.connector as sql
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.models import User
@@ -67,12 +68,18 @@ def indexcard4(request):
 def rotclist(request):
     list = extenduser.objects.filter(field='ROTC').filter(status='ENROLLED')
     return render(request, 'activities/rotclist.html', {'list': list})
+def cwtslist1(request):
+    list2 = extenduser.objects.filter(field='CWTS').filter(status='ENROLLED')
+    return render(request, 'activities/cwtslist.html', {'list2': list2})
+    
+
 def cnt(request):
     cnt = extenduser.objects.filter(field='ROTC').count()
     return render(request, 'activities/rotclist.html', {'cnt': cnt})
 
+@login_required(login_url='/login')
 def cwtslist(request):
-    list1 = extenduser.objects.filter(field='CWTS')
+    list1 = extenduser.objects.filter(field='CWTS').filter(status='ENROLLED')
     return render(request, 'activities/cwtslist.html', {'list1': list1})
 
 def adminrotclist(request):
@@ -99,7 +106,7 @@ def enrolledrotc(request):
     count10 = extenduser.objects.filter(platoon='Juliet').filter(status='ENROLLED').count
     count11 = extenduser.objects.filter(platoon='Kilo').filter(status='ENROLLED').count
     count12 = extenduser.objects.filter(platoon='Lima').filter(status='ENROLLED').count
-    sheesh = extenduser.objects.filter(status='ENROLLED')
+    sheesh = extenduser.objects.filter(status='ENROLLED').filter(field='ROTC')
     context = {
         'count1': count1,
         'count2': count2,
@@ -119,13 +126,24 @@ def enrolledrotc(request):
     return render(request, 'activities/enrolledrotc.html', context)
 
 
-
-def grades_alpha(request):
-    grades = extenduser.objects.filter(platoon='Alpha')
+def enrolledcwts(request):
+    count1cwts = extenduser.objects.filter(platoon='Section A').filter(status='ENROLLED').count
+    count2cwts = extenduser.objects.filter(platoon='Section B').filter(status='ENROLLED').count
+    sheesh1 = extenduser.objects.filter(status='ENROLLED').filter(field='CWTS')
+    
     context = {
-        'grades': grades,
+        'count1cwts': count1cwts,
+        'count2cwts': count2cwts,
+        'sheesh1': sheesh1,
     }
-    return render (request, 'activities/grades_alpha.html', context)
+    return render(request, 'activities/enrolledcwts.html', context)
+    
+
+
+
+# def grades_alpha(request):
+    
+#     return render (request, 'activities/grades_alpha.html', context)
     
     
 
@@ -140,7 +158,7 @@ def dashboard(request):
 
  
 
-@login_required(login_url='/login')
+
 # def requested(request):
 #     requests = certifications.objects.filter(user = request.user)
 #     return render(request, 'activities/certification.html', {'requests': requests})
@@ -218,7 +236,7 @@ def student_india(request):
     india_display = indiamodel.objects.all()
     return render(request, 'activities/india.html', {'india_display': india_display})
 
-@login_required(login_url='/login')
+@login_required(login_url='/userlogin')
 def student_juliet(request):
     juliet_display = julietmodel.objects.all()
     return render(request, 'activities/juliet.html', {'juliet_display': juliet_display})
@@ -269,7 +287,7 @@ def pdf(request, id):
 
 
 def admincertificate(request):
-    request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='').filter(cert_status='PENDING')
+    request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='')
     return render(request, 'activities/admincertification.html', {'request1': request1})
 
 def navadmin(request):
@@ -289,11 +307,31 @@ def certi(request):
 # admin platoon display
 
 def adminplatoon(request):
+
     return render(request, 'activities/adminplatoons.html')
 
 def d_alpha(request):
     alpha_display = alphamodel.objects.all()
-    return render(request, 'activities/adminalpha.html', {'alpha_display': alpha_display})
+    gradess = extenduser.objects.filter(platoon='Alpha')
+    context = {
+      
+        'alpha_display': alpha_display,
+        'gradess': gradess,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('getID1')
+        a_grades = request.POST.get('a_grades')
+        a_grades1 = request.POST.get('a_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=a_grades, grades1=a_grades1)
+        
+    return render(request, 'activities/adminalpha.html', context)
+
+# def alphagrade(request):
+#     gradess = extenduser.objects.filter(platoon='Alpha')
+#     context = {
+#         'gradess': gradess,
+#     }
+#     return render(request, 'activities/adminalpha.html', context)
 
 def d_bravo(request):
     bravo_display = bravomodel.objects.all()
@@ -506,10 +544,16 @@ def platoonupdate(request):
     if request.method == 'POST':
         enr1 = request.POST.get('plat')
         enr2 = request.POST.get('getID')
-        grd = request.POST.get('grade')
-        extenduser.objects.filter(id=enr2).update(platoon=enr1, grades=grd)
+        
+        extenduser.objects.filter(id=enr2).update(platoon=enr1)
     return redirect('/enrolledrotc')
     
+def sectionupdate(request):
+    if request.method == 'POST':
+        sec1 = request.POST.get('sec')
+        enr4 = request.POST.get('getIDs')
+        extenduser.objects.filter(id=enr4).update(platoon=sec1)
+    return redirect('/enrolledcwts')
 
 
 
