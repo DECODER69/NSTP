@@ -454,13 +454,44 @@ def d_india(request):
 def d_juliet(request):
     juliet_display = julietmodel.objects.all()
     india_grade = extenduser.objects.filter(platoon='Juliet')
-    return render(request, 'activities/adminjuliet.html', {'juliet_display': juliet_display})
+    context = {
+        'juliet_display': juliet_display,
+        'juliet_grade': india_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('india_id')
+        i_grades = request.POST.get('i_grades')
+        i_grades1 = request.POST.get('i_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=i_grades, grades1=i_grades1)
+    return render(request, 'activities/adminjuliet.html', context)
+
 def d_kilo(request):
     kilo_display = kilomodel.objects.all()
-    return render(request, 'activities/adminkilo.html', {'kilo_display': kilo_display})
+    kilo_grade = extenduser.objects.filter(platoon='Kilo')
+    context = {
+        'kilo_display': kilo_display,
+        'kilo_grade': kilo_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('kilo_id')
+        k_grades = request.POST.get('k_grades')
+        k_grades1 = request.POST.get('k_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=k_grades, grades1=k_grades1)
+    return render(request, 'activities/adminkilo.html', context)
+
 def d_lima(request):
     lima_display = limamodel.objects.all()
-    return render(request, 'activities/adminlima.html', {'lima_display': lima_display})
+    lima_grade = extenduser.objects.filter(platoon='Lima')
+    context = {
+        'lima_display': lima_display,
+        'lima_grade': lima_grade,
+    }
+    if request.method == 'POST':
+        enr2 = request.POST.get('lima_id')
+        l_grades = request.POST.get('l_grades')
+        l_grades1 = request.POST.get('l_grades1')
+        extenduser.objects.filter(id=enr2).update(grades=l_grades, grades1=l_grades1)
+    return render(request, 'activities/adminlima.html', context)
 
 
 
