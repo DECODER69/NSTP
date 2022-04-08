@@ -22,6 +22,7 @@ urlpatterns = [
     path('userlogin/', views.userlogin, name='userlogin'),
     path('navbar/', views.navbar, name='navbar'),
     path('new_navbar', views.new_navbar, name='new_navbar'),
+    path('new_navbarstudent', views.new_navbarstudent, name='new_navbarstudent'),
     path('rotclist/', views.rotclist, name='rotclist'),
     path('cwtslist/', views.cwtslist, name='cwtslist'),
     path('dashboard/', views.dashboard, name='dashboard'),
