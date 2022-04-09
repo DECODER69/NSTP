@@ -888,6 +888,9 @@ def cwts_delete(request, id):
     member.delete()
     return redirect('/admincwts')
 
+def rotc_delete(request, id):
+    pass
+
 
 
 

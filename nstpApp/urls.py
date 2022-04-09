@@ -53,6 +53,7 @@ urlpatterns = [
     path('enrolledcwts/', views.enrolledcwts, name='enrolledcwts'),
     path('platoonupdate/', views.platoonupdate, name='platoonupdate'),
     path('sectionupdate/', views.sectionupdate, name='sectionupdate'),
+    path('rotc_delete/<str:id>', views.rotc_delete, name='rotc_delete'),
     # path('alphacount/', views.alphacount, name='alphacount'),
     # path('counts/', views.counts, name='counts'),
 
