@@ -28,6 +28,8 @@ li {
     padding: 20px;
     background-color: #000000;
     color: #fff;
+    top: 0;
+    position: sticky;
 }
 
 .nav-links a {
@@ -118,6 +120,8 @@ input[type=checkbox] {
     font-size: 24px;
     user-select: none;
 }
+
+
 
 
 /* APPLYING MEDIA QUERIES */
