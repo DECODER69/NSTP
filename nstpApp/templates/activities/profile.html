@@ -16,6 +16,7 @@
     <div class="prof">
         <form action="{% url 'activities:profile' %}" method="POST">
             {% csrf_token %} {% for e in edit %}
+            <img class="profile-pic" src="{{e.picture.url}}"><br><br>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="First name" value="{{e.fname}}" name="firstn" disabled>

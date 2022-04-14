@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import context
+from httplib2 import Authentication
 
 import nstpApp
 # from .models import registration
@@ -23,8 +24,11 @@ import mysql.connector as sql
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from .forms import certificationsForm
+
 from django.http import FileResponse
+from django.contrib.auth.forms import UserCreationForm
+from .forms import CreateUserForm
+
 
 
 idnum=''
@@ -48,9 +52,9 @@ def login(request):
 def register(request):
     return render(request, 'activities/signup.html')
 
-def navbar(request):
-    data = registration.objects.all()
-    return render(request, 'activities/base.html', {'data': data})
+# def navbar(request):
+#     data = registration.objects.all()
+#     return render(request, 'activities/base.html', {'data': data})
 
 def footer(request):
     return render(request, 'activities/footer.html')
@@ -499,38 +503,56 @@ def d_lima(request):
 def updateform(request):
     return render(request, 'activities/updateform.html')
 
+# def registerprocess(request):
+#     if request.method == 'POST':
+#         try:
+#             user = User.objects.get(username=request.POST['username'], email=request.POST['email'])
+#             return render(request, 'activities/signup.html', {'error': 'User already exists'})
+#         except:
+#             username = request.POST['username']
+#             lname=request.POST.get('last_name')
+#             fname=request.POST.get('first_name')
+#             minitial=request.POST.get('middle')
+#             address=request.POST.get('address')
+#             cpnumber=request.POST.get('contact')
+#             email=request.POST.get('email')
+#             gender=request.POST.get('gender')
+#             age=request.POST.get('age')
+#             bdate=request.POST.get('birthday')
+#             password=request.POST.get('password')
+#             section=request.POST.get('section')
+#             field=request.POST.get('field')
+#             picture = request.FILES['picture']
+            
+#             user = User.objects.create_user(username=username, password=password,)
+            
+#             newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
+#          password=password, section=section, field=field, user=user, picture=picture)
+#             newextenduser.save()
+#             auth.login(request, user)
+#             return render(request, 'activities/login.html')
+#     else:
+#         return render(request, 'activities/login.html')
+
 def registerprocess(request):
+    form =UserCreationForm(request)
     if request.method == 'POST':
-        try:
-            user = User.objects.get(username=request.POST['username'], email=request.POST['email'])
-            return render(request, 'activities/signup.html', {'error': 'User already exists'})
-        except:
-            username = request.POST['username']
-            lname=request.POST.get('last_name')
-            fname=request.POST.get('first_name')
-            minitial=request.POST.get('middle')
-            address=request.POST.get('address')
-            cpnumber=request.POST.get('contact')
-            email=request.POST.get('email')
-            gender=request.POST.get('gender')
-            age=request.POST.get('age')
-            bdate=request.POST.get('birthday')
-            password=request.POST.get('password')
-            section=request.POST.get('section')
-            field=request.POST.get('field')
-            picture = request.FILES['picture']
-            
-            user = User.objects.create_user(username=username, password=password,)
-            
-            newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
-         password=password, section=section, field=field, user=user, picture=picture)
-            newextenduser.save()
-            auth.login(request, user)
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'activities/login.html', {'form': form})
+        else:
             return render(request, 'activities/login.html')
-    else:
-        return render(request, 'activities/login.html')
-                
+                            
             
+def registration(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form': form}
+    return render(request, 'activities/registration.html', context)
 
 
 
@@ -551,32 +573,17 @@ def userlogin(request):
     else:
         return render(request, 'activities/Dashboard.html')
 
-
-#       ADMIN LOGIN
-
 # def userlogin(request):
-#     if request.method=="POST":
-#         m=sql.connect(host="localhost",user="root",password="",database='nstpsystem')
-#         cursor=m.cursor()
-#         d=request.POST
-#         for key,value in d.items():
-#             if key=="username":
-#                 idnum=value
-#             if key=="password":
-#                 password=value
-        
-#         c="select * from User where idnum='{}' and password='{}'".format(idnum,password)
-        
-#         cursor.execute(c)
-#         t=tuple(cursor.fetchall())
-#         if t==():
-#             return render(request, 'activities/login.html')
-            
+#     if request.method == 'POST':
+#         form = AuthenticationForm(data = request.POST)
+#         if form.is_valid():
+#             return redirect('/dashboard')
 #         else:
-#             name = registration.objects.filter(idnum=idnum)
-#             return render(request, 'activities/Dashboard.html', {'name': name})
+#             return render(request, 'activities/login.html')
+#     else:
+#         return render(request, 'activities/Dashboard.html')
 
-#     return render(request, 'activities/login.html')
+
 
 def admin2(request):
     if request.method == "POST":
@@ -1005,7 +1012,7 @@ def lima_delete(request, id):
     return render(request, 'activities/limadel.html')
 
 def profile(request):
-    edit = extenduser.objects.filter(user=request.user)
+    edit = extenduser.objects.filter(user=request.user.id)
     if request.method =='POST':
         address = request.POST.get('address')
         cpnumber = request.POST.get('cpnumber')

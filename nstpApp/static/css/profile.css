@@ -19,3 +19,12 @@ h1 {
 .btn {
     float: right !important;
 }
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid 1px rgb(133, 133, 133);
+    margin: auto;
+    display: flex;
+}

@@ -105,7 +105,7 @@ class certifications(models.Model):
     cert_datereq = models.CharField(max_length=20 )
     cert_document = models.CharField(max_length=20 )
     cert_status = models.CharField(max_length=20, choices=STATUS, default='PENDING')
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+  
     
     def __str__(self):
         return self.cert_email
