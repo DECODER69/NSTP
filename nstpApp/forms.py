@@ -4,10 +4,12 @@ from .models import certifications
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import certifications
+from .models import extenduser
 
 
-class certificationsForm(forms.ModelForm):
+class registration(UserCreationForm):
+    fieldName = forms.modelField()
+    
     class Meta:
-        model = certifications
-        fields = ['cert_status']
+        model = extenduser
+        fields = ['username', 'email', 'password1', 'password2']

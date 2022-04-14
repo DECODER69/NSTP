@@ -3,16 +3,11 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
 body {
     background-color: white;
-}
-
-main {
-    padding: 20px 20px 20px 20px;
 }
 
 h4 {
@@ -26,52 +21,61 @@ p {
     padding-bottom: 20px;
 }
 
-
-}
 #hamburger i {
     color: #691a1b;
     font-size: 30px;
 }
+
 .label {
     margin: 0;
     display: grid;
 }
+
 #signin-btn {
     color: #691a1b;
     border: 1px solid #691a1b;
 }
+
 #signin-btn:hover {
     background-color: #b10012;
 }
+
 #try1 {
     margin: auto;
     display: flex;
 }
+
 .card-header {
     font-size: 30px!important;
     font-weight: bolder;
 }
+
 iframe {
     margin: auto;
     display: flex;
 }
+
 .cards {
     display: grid;
     grid-gap: 10px;
     margin: 10px 10px 10px 10px;
 }
+
 .card-img-top {
     display: flex;
     margin: auto;
 }
+
 .btn {
     margin: auto;
     display: flex;
     margin-bottom: 5px;
 }
+
 .card {
     border: #691a1b solid 1px;
 }
+
 #title {
     font-size: 100px;
     font-weight: bolder;
@@ -79,53 +83,51 @@ iframe {
     display: flex;
 }
 
+
 /*Window size: tablet and phone*/
+
 @media only screen and (max-width: 1000px) {
     #logo img {
         width: 60px;
         height: auto;
     }
-    
     .label h4 {
         font-size: 15px;
     }
-    
     #carouselExampleIndicators {
         height: 50vh;
     }
-    
     #carousel-img img {
         height: 50vh;
     }
 }
 
+
 /*Window size: full screen or Computer*/
+
 @media only screen and (max-width: 900px) {
     .card-deck {
         display: grid;
         margin-top: 10px;
     }
-    
     .card {
         margin-top: 10px;
     }
 }
+
 @media only screen and (max-width: 1141px) {
     .cards {
         display: grid;
         grid-gap: 10px;
     }
-    
     .card {
         margin-top: 10px;
         display: grid;
     }
-    
     #title {
         font-size: 30px;
         font-weight: bolder;
     }
-    
     .card-title {
         font-size: 15px;
     }

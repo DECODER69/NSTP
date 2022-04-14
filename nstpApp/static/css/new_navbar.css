@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -120,8 +120,6 @@ input[type=checkbox] {
     font-size: 24px;
     user-select: none;
 }
-
-
 
 
 /* APPLYING MEDIA QUERIES */

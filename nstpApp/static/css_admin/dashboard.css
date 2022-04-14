@@ -120,16 +120,14 @@
 /* calendar */
 
 html {
-    font-family: sans-serif;
-    font-size: 15px;
     line-height: 1.4;
     color: #444;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
     background: white;
-    font-size: 1em;
     overflow-x: hidden;
 }
 

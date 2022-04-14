@@ -1,410 +1,354 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css");
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-body {
-    background-color: white;
-}
-
-main {
-    padding: 20px 20px 20px 20px;
-}
-
-h4 {
-    color: #691a1b;
-}
-
-p {
-    color: #691a1b;
-    padding-left: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-nav {
-    background-color: rgb(155, 155, 155);
-    border-bottom: 1px solid #691a1b;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-#navbarNavAltMarkup li a {
-    color: #691a1b;
-    font-weight: bolder;
-    font-style: normal;
-}
-
-#navbarNavAltMarkup a:hover {
-    color: #DF465A;
-}
-
-#FAQS {
-    margin-top: 10px;
-    background: transparent;
-}
-
-#FAQS h1 {
-    color: #691a1b;
-    font-weight: bolder;
-}
-
-#navbarNavAltMarkup a {
-    color: white;
-    font-weight: bold;
-}
-
-#navbarNavAltMarkup a:focus {
-    border-bottom: 1px solid #691a1b;
-}
-
-#logo img {
-    width: 150px;
-    height: auto;
-}
-
-#hamburger i {
-    color: #691a1b;
-    font-size: 30px;
-}
-
-.label {
-    margin: 0;
-    display: grid;
-}
-
-#signin-btn {
-    color: #691a1b;
-    border: 1px solid #691a1b;
-}
-
-#signin-btn:hover {
-    background-color: #b10012;
-}
-
-#try1 {
-    margin: auto;
-    display: flex;
-}
-
-.card-header {
-    font-size: 30px!important;
-    font-weight: bolder;
-}
-
-iframe {
-    margin: auto;
-    display: flex;
-}
-
-.cards {
-    display: grid;
-    grid-gap: 10px;
-    margin: 10px 10px 10px 10px;
-}
-
-.card-img-top {
-    display: flex;
-    margin: auto;
-}
-
-.btn {
-    margin: auto;
-    display: flex;
-    margin-bottom: 5px;
-}
-
-.card {
-    border: #691a1b solid 1px;
-}
-
-#title {
-    font-size: 100px;
-    font-weight: bolder;
-    margin: auto;
-    display: flex;
-}
-
-
-/* 
-UPLOADSSSSSSSSSS */
-
-#one {
-    margin-top: 50px;
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-}
-
-.it .btn-orange {
-    background-color: transparent;
-    border-color: #777!important;
-    color: #777;
-    text-align: left;
-    width: 100%;
-}
-
-.it input.form-control {
-    height: 54px;
-    border: none;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    border-bottom: 1px solid #ddd;
-    box-shadow: none;
-}
-
-.it .form-control:focus {
-    border-color: #ff4d0d;
-    box-shadow: none;
-    outline: none;
-}
-
-.fileUpload {
-    position: relative;
-    overflow: hidden;
-    margin: 10px;
-}
-
-.fileUpload input.upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-
-.it .btn-new,
-.it .btn-next {
-    margin: 30px 0px;
-    border-radius: 0px;
-    background-color: #333;
-    color: #f5f5f5;
-    font-size: 16px;
-    width: 155px;
-}
-
-.it .btn-next {
-    background-color: #ff4d0d;
-    color: #fff;
-}
-
-.it .btn-check {
-    cursor: pointer;
-    line-height: 54px;
-    color: red;
-}
-
-.it .uploadDoc {
-    margin-bottom: 20px;
-}
-
-.it .uploadDoc {
-    margin-bottom: 20px;
-}
-
-.it .btn-orange img {
-    width: 30px;
-}
-
-p {
-    font-size: 16px;
-    text-align: center;
-    margin: 30px 0px;
-}
-
-.it #uploader .docErr {
-    position: absolute;
-    right: auto;
-    left: 10px;
-    top: -56px;
-    padding: 10px;
-    font-size: 15px;
-    background-color: #fff;
-    color: red;
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-}
-
-.it #uploader .docErr:after {
-    content: '\f0d7';
-    display: inline-block;
-    font-family: FontAwesome;
-    font-size: 50px;
-    color: #fff;
-    position: absolute;
-    left: 30px;
-    bottom: -40px;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-#uploadx {
-    display: flex;
-    margin-top: 10px;
-    justify-self: center;
-    justify-content: center;
-}
-
-
-/* display data from database */
-
-.uploads {
-    display: flex;
-    margin-top: 30px;
-}
-
-.table {
-    margin-top: 50px;
-    border: #333 solid 1px;
-    height: auto;
-}
-
-
-/*Window size: tablet and phone*/
-
-@media only screen and (max-width: 1000px) {
-    nav,
+    body {
+        background-color: white;
+    }
     main {
-        padding: 0 10px 0 10px;
+        padding: 20px 20px 20px 20px;
+    }
+    h4 {
+        color: #691a1b;
+    }
+    p {
+        color: #691a1b;
+        padding-left: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     nav {
-        position: fixed;
-        top: 0;
+        background-color: rgb(155, 155, 155);
+        border-bottom: 1px solid #691a1b;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #navbarNavAltMarkup li a {
+        color: #691a1b;
+        font-weight: bolder;
+        font-style: normal;
+    }
+    #navbarNavAltMarkup a:hover {
+        color: #DF465A;
+    }
+    #FAQS {
+        margin-top: 10px;
+        background: transparent;
+    }
+    #FAQS h1 {
+        color: #691a1b;
+        font-weight: bolder;
+    }
+    #navbarNavAltMarkup a {
+        color: white;
+        font-weight: bold;
+    }
+    #navbarNavAltMarkup a:focus {
+        border-bottom: 1px solid #691a1b;
     }
     #logo img {
-        width: 60px;
+        width: 150px;
         height: auto;
     }
-    .label h4 {
-        font-size: 15px;
+    #hamburger i {
+        color: #691a1b;
+        font-size: 30px;
     }
-    #carouselExampleIndicators {
-        height: 50vh;
+    .label {
+        margin: 0;
+        display: grid;
     }
-    #carousel-img img {
-        height: 50vh;
+    #signin-btn {
+        color: #691a1b;
+        border: 1px solid #691a1b;
     }
-}
-
-
-/*Window size: full screen or Computer*/
-
-@media only screen and (min-width: 1000px) {
-    #navbarNavAltMarkup {
+    #signin-btn:hover {
+        background-color: #b10012;
+    }
+    #try1 {
+        margin: auto;
         display: flex;
-        justify-content: flex-end;
     }
-    nav {
-        height: 200px;
+    .card-header {
+        font-size: 30px!important;
+        font-weight: bolder;
     }
-    .uploads {
+    iframe {
+        margin: auto;
+        display: flex;
+    }
+    .cards {
+        display: grid;
+        grid-gap: 10px;
+        margin: 10px 10px 10px 10px;
+    }
+    .card-img-top {
+        display: flex;
+        margin: auto;
+    }
+    .btn {
+        margin: auto;
+        display: flex;
+        margin-bottom: 5px;
+    }
+    .card {
+        border: #691a1b solid 1px;
+    }
+    #title {
+        font-size: 100px;
+        font-weight: bolder;
+        margin: auto;
+        display: flex;
+    }
+    /* 
+UPLOADSSSSSSSSSS */
+    #one {
+        margin-top: 50px;
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .it .btn-orange {
+        background-color: transparent;
+        border-color: #777!important;
+        color: #777;
+        text-align: left;
         width: 100%;
-        justify-content: center;
-        padding: 15px;
+    }
+    .it input.form-control {
+        height: 54px;
+        border: none;
+        margin-bottom: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid #ddd;
+        box-shadow: none;
+    }
+    .it .form-control:focus {
+        border-color: #ff4d0d;
+        box-shadow: none;
+        outline: none;
     }
     .fileUpload {
-        display: grid;
-        justify-content: center;
-        font-size: 15px;
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
     }
-    .icon {
-        justify-self: center;
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
     }
-    #upload {
-        justify-self: center;
+    .it .btn-new,
+    .it .btn-next {
+        margin: 30px 0px;
+        border-radius: 0px;
+        background-color: #333;
+        color: #f5f5f5;
+        font-size: 16px;
+        width: 155px;
     }
-}
-
-@media only screen and (max-width: 1000px) {
-    .uploads {
-        display: grid;
-        width: 100%;
-        justify-content: center;
+    .it .btn-next {
+        background-color: #ff4d0d;
+        color: #fff;
+    }
+    .it .btn-check {
+        cursor: pointer;
+        line-height: 54px;
+        color: red;
+    }
+    .it .uploadDoc {
+        margin-bottom: 20px;
+    }
+    .it .uploadDoc {
+        margin-bottom: 20px;
+    }
+    .it .btn-orange img {
+        width: 30px;
+    }
+    p {
+        font-size: 16px;
+        text-align: center;
+        margin: 30px 0px;
+    }
+    .it #uploader .docErr {
+        position: absolute;
+        right: auto;
+        left: 10px;
+        top: -56px;
         padding: 10px;
+        font-size: 15px;
+        background-color: #fff;
+        color: red;
+        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.2);
+        display: none;
     }
-    .left {
-        width: 1000px;
-        display: grid;
-        margin: auto;
-    }
-    .container1 {
-        width: 100%;
-    }
-    #one {
-        width: 100%;
-        justify-self: center;
-        margin: auto;
-    }
-    .upl {
-        width: 100%;
-    }
-    #uploader {
-        display: grid;
+    .it #uploader .docErr:after {
+        content: '\f0d7';
+        display: inline-block;
+        font-family: FontAwesome;
+        font-size: 50px;
+        color: #fff;
+        position: absolute;
+        left: 30px;
+        bottom: -40px;
+        text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     }
     #uploadx {
         display: flex;
         margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 20px;
-    }
-    .right {
-        margin-top: 50px;
-        width: 100%;
-        display: grid;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .fileUpload {
-        display: grid;
+        justify-self: center;
         justify-content: center;
     }
-    #upload {
-        font-size: 10px;
-    }
-    .icon {
-        justify-self: center;
-    }
-}
-
-@media only screen and (max-width: 535px) {
+    /* display data from database */
     .uploads {
-        display: grid;
-        width: 100%;
-        justify-content: center;
+        display: flex;
+        margin-top: 30px;
     }
-    .left {
-        width: 500px;
-        display: grid;
-        margin: auto;
+    .table {
+        margin-top: 50px;
+        border: #333 solid 1px;
+        height: auto;
     }
-    .right {
-        width: 500px;
-        display: grid;
-        margin: auto;
-        font-size: 10px;
+    /*Window size: tablet and phone*/
+    @media only screen and (max-width: 1000px) {
+        nav,
+        main {
+            padding: 0 10px 0 10px;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+        }
+        #logo img {
+            width: 60px;
+            height: auto;
+        }
+        .label h4 {
+            font-size: 15px;
+        }
+        #carouselExampleIndicators {
+            height: 50vh;
+        }
+        #carousel-img img {
+            height: 50vh;
+        }
     }
-    #uploadx {
-        font-size: 15px;
+    /*Window size: full screen or Computer*/
+    @media only screen and (min-width: 1000px) {
+        #navbarNavAltMarkup {
+            display: flex;
+            justify-content: flex-end;
+        }
+        nav {
+            height: 200px;
+        }
+        .uploads {
+            width: 100%;
+            justify-content: center;
+            padding: 15px;
+        }
+        .fileUpload {
+            display: grid;
+            justify-content: center;
+            font-size: 15px;
+        }
+        .icon {
+            justify-self: center;
+        }
+        #upload {
+            justify-self: center;
+        }
     }
-    p {
-        justify-self: center;
+    @media only screen and (max-width: 1000px) {
+        .uploads {
+            display: grid;
+            width: 100%;
+            justify-content: center;
+            padding: 10px;
+        }
+        .left {
+            width: 1000px;
+            display: grid;
+            margin: auto;
+        }
+        .container1 {
+            width: 100%;
+        }
+        #one {
+            width: 100%;
+            justify-self: center;
+            margin: auto;
+        }
+        .upl {
+            width: 100%;
+        }
+        #uploader {
+            display: grid;
+        }
+        #uploadx {
+            display: flex;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+        }
+        .right {
+            margin-top: 50px;
+            width: 100%;
+            display: grid;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .fileUpload {
+            display: grid;
+            justify-content: center;
+        }
+        #upload {
+            font-size: 10px;
+        }
+        .icon {
+            justify-self: center;
+        }
     }
-    .upl {
-        width: 100%;
-        justify-content: center;
-        justify-self: center;
+    @media only screen and (max-width: 535px) {
+        .uploads {
+            display: grid;
+            width: 100%;
+            justify-content: center;
+        }
+        .left {
+            width: 500px;
+            display: grid;
+            margin: auto;
+        }
+        .right {
+            width: 500px;
+            display: grid;
+            margin: auto;
+            font-size: 10px;
+        }
+        #uploadx {
+            font-size: 15px;
+        }
+        p {
+            justify-self: center;
+        }
+        .upl {
+            width: 100%;
+            justify-content: center;
+            justify-self: center;
+        }
+        .fileUpload {
+            display: grid;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .icon {
+            justify-self: center;
+        }
     }
-    .fileUpload {
-        display: grid;
-        justify-content: center;
-        font-size: 20px;
-    }
-    .icon {
-        justify-self: center;
-    }
-}
