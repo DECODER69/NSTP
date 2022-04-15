@@ -26,10 +26,9 @@ li {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #450000;
+    background-color: #420101;
     color: #fff;
     top: 0;
-    position: sticky;
 }
 
 .nav-links a {
