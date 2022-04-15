@@ -31,6 +31,7 @@ p {
 .card-header {
     font-size: 30px!important;
     font-weight: bolder;
+    color: #9a5f00;
 }
 
 iframe {
@@ -55,8 +56,9 @@ iframe {
     margin-bottom: 5px;
 }
 
-.card {
+.cardx {
     border: #691a1b solid 1px;
+    justify-content: space-between;
 }
 
 #title {
@@ -65,6 +67,13 @@ iframe {
     margin: auto;
     display: flex;
 }
+
+
+/* profile .upload */
+
+
+/* 
+enmd of profile upload */
 
 
 /* 

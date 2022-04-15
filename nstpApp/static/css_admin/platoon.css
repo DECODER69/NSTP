@@ -4,77 +4,89 @@
     overflow-x: hidden;
 }
 
+body {
+    background-color: #eaf2f3;
+}
+
 .cards {
     display: grid;
     grid-gap: 10px;
     margin: 10px 10px 10px 10px;
 }
 
-margin-bottom: 5px;
 
-}
+/* margin-bottom: 5px; */
+
 .card {
-    border: #691a1b solid 1px;
+    border: #bfbfbf solid 1px;
+    /* transform: rotate(-40deg); */
 }
+
+.platoon-pics {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
 #title {
+    width: 150px;
+    height: 150px;
     font-size: 100px;
     font-weight: bolder;
-    margin: auto;
-    display: flex;
+    color: #000000;
 }
+
 .btn {
     margin: auto;
     display: flex;
     margin-bottom: 5px;
 }
 
+
 /*Window size: tablet and phone*/
+
 @media only screen and (max-width: 1000px) {
     #logo img {
         width: 60px;
         height: auto;
     }
-    
     .label h4 {
         font-size: 15px;
     }
-    
     #carouselExampleIndicators {
         height: 50vh;
     }
-    
     #carousel-img img {
         height: 50vh;
     }
 }
 
+
 /*Window size: full screen or Computer*/
+
 @media only screen and (max-width: 900px) {
     .card-deck {
         display: grid;
         margin-top: 10px;
     }
-    
     .card {
         margin-top: 10px;
     }
 }
+
 @media only screen and (max-width: 1141px) {
     .cards {
         display: grid;
         grid-gap: 10px;
     }
-    
     .card {
         margin-top: 10px;
         display: grid;
     }
-    
     #title {
         font-size: 30px;
         font-weight: bolder;
     }
-    
     .card-title {
         font-size: 15px;
     }

@@ -117,6 +117,7 @@ class certifications(models.Model):
 class alphamodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    # alphaImage = models.ImageField(upload_to='images/', null=False)
     def __str__(self):
         return self.name
     
