@@ -503,46 +503,46 @@ def d_lima(request):
 def updateform(request):
     return render(request, 'activities/updateform.html')
 
-# def registerprocess(request):
-#     if request.method == 'POST':
-#         try:
-#             user = User.objects.get(username=request.POST['username'], email=request.POST['email'])
-#             return render(request, 'activities/signup.html', {'error': 'User already exists'})
-#         except:
-#             username = request.POST['username']
-#             lname=request.POST.get('last_name')
-#             fname=request.POST.get('first_name')
-#             minitial=request.POST.get('middle')
-#             address=request.POST.get('address')
-#             cpnumber=request.POST.get('contact')
-#             email=request.POST.get('email')
-#             gender=request.POST.get('gender')
-#             age=request.POST.get('age')
-#             bdate=request.POST.get('birthday')
-#             password=request.POST.get('password')
-#             section=request.POST.get('section')
-#             field=request.POST.get('field')
-#             picture = request.FILES['picture']
-            
-#             user = User.objects.create_user(username=username, password=password,)
-            
-#             newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
-#          password=password, section=section, field=field, user=user, picture=picture)
-#             newextenduser.save()
-#             auth.login(request, user)
-#             return render(request, 'activities/login.html')
-#     else:
-#         return render(request, 'activities/login.html')
-
 def registerprocess(request):
-    form =UserCreationForm(request)
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'activities/login.html', {'form': form})
-        else:
+        try:
+            user = User.objects.get(username=request.POST['username'], email=request.POST['email'])
+            return render(request, 'activities/signup.html', {'error': 'User already exists'})
+        except:
+            username = request.POST['username']
+            lname=request.POST.get('last_name')
+            fname=request.POST.get('first_name')
+            minitial=request.POST.get('middle')
+            address=request.POST.get('address')
+            cpnumber=request.POST.get('contact')
+            email=request.POST.get('email')
+            gender=request.POST.get('gender')
+            age=request.POST.get('age')
+            bdate=request.POST.get('birthday')
+            password=request.POST.get('password')
+            section=request.POST.get('section')
+            field=request.POST.get('field')
+            picture = request.FILES['picture']
+            
+            user = User.objects.create_user(username=username, password=password,)
+            
+            newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
+         password=password, section=section, field=field, user=user, picture=picture)
+            newextenduser.save()
+            auth.login(request, user)
             return render(request, 'activities/login.html')
+    else:
+        return render(request, 'activities/login.html')
+
+# def registerprocess(request):
+#     form =UserCreationForm(request)
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return render(request, 'activities/login.html', {'form': form})
+#         else:
+#             return render(request, 'activities/login.html')
                             
             
 def registration(request):

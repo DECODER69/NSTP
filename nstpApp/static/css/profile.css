@@ -28,3 +28,9 @@ h1 {
     margin: auto;
     display: flex;
 }
+
+#perinfo {
+    color: rgb(175, 132, 2);
+    font-size: 20px;
+    float: left;
+}

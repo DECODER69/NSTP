@@ -12,8 +12,11 @@
 
 <body>
     {% include 'activities/base.html' %}<br>
-    <h1>Profile Edit</h1>
+    <!-- <h1>Profile Edit</h1> -->
+
     <div class="prof">
+        <h1 id="perinfo"><i class="fa fa-user-circle" aria-hidden="true" style="color: rgb(0, 0, 0);"> </i>&nbsp; PERSONAL INFORMATION</h1><br>
+        <hr>
         <form action="{% url 'activities:profile' %}" method="POST">
             {% csrf_token %} {% for e in edit %}
             <img class="profile-pic" src="{{e.picture.url}}"><br><br>
