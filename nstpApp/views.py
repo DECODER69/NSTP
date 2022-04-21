@@ -52,6 +52,10 @@ def login(request):
 def register(request):
     return render(request, 'activities/signup.html')
 
+def studentnav(request):
+    name2 = extenduser.objects.filter(user = request.user)
+    return render(request, 'activities/studentnav.html', {'name2': name2})
+
 # def navbar(request):
 #     data = registration.objects.all()
 #     return render(request, 'activities/base.html', {'data': data})
@@ -163,9 +167,18 @@ def enrolledcwts(request):
 @login_required(login_url='/login')
 def dashboard(request):
     name = extenduser.objects.filter(user = request.user)
-    return render(request, 'activities/dashboard.html', {'name': name})
+    encount = extenduser.objects.filter(status = 'PENDING').count()
+    encount2 = extenduser.objects.filter(status = 'APPROVED').count()
+    encount3 = extenduser.objects.filter(status = 'PENDING').count()
+    context = {
+        'name': name,
+        'encount': encount,
+        'encount2': encount2,
+        'encount3': encount3,
+    }
+    return render(request, 'activities/dashboard.html', context)
 
- 
+
 
 
 # def requested(request):
@@ -523,9 +536,7 @@ def registerprocess(request):
             section=request.POST.get('section')
             field=request.POST.get('field')
             picture = request.FILES['picture']
-            
             user = User.objects.create_user(username=username, password=password,)
-            
             newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
          password=password, section=section, field=field, user=user, picture=picture)
             newextenduser.save()
@@ -545,14 +556,14 @@ def registerprocess(request):
 #             return render(request, 'activities/login.html')
                             
             
-def registration(request):
-    form = CreateUserForm()
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-    context = {'form': form}
-    return render(request, 'activities/registration.html', context)
+# def registration(request):
+#     form = CreateUserForm()
+#     if request.method == 'POST':
+#         form = CreateUserForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     context = {'form': form}
+#     return render(request, 'activities/registration.html', context)
 
 
 
