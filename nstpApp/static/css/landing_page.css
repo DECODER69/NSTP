@@ -1,10 +1,33 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
-nav {
-    background-color: brown;
-    height: 100px;
+#nstpnav {
+    padding: 30px 30px 30px 30px;
+    background-color: black;
 }
 
-button {
-    background-color: white;
+.navbar-toggler-icon {
+    color: white;
+}
+
+
+/* Media Query */
+
+@media only screen and (max-width:1000px) {
+    #techUnivWord {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:1000px) {
+    #navbarSupportedContent {
+        display: flex;
+        justify-content: flex-end;
+    }
+    #navbarSupportedContent ul {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+a {
     color: white;
 }
