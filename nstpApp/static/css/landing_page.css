@@ -1,0 +1,293 @@
+#nstpnav {
+    padding: 30px 30px 30px 30px;
+    background-color: transparent;
+}
+
+
+/* Media Query */
+
+@media only screen and (max-width:1000px) {
+    #techUnivWord {
+        display: none;
+    }
+    body {
+        background-image: url(../image/bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-width: 100%;
+        min-height: 75vh;
+    }
+    .nav-item {
+        text-align: center;
+        margin: auto;
+    }
+    .container-left {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+        /* width: 50%;
+height: 100vh; */
+    }
+    iframe {
+        width: 100%;
+        height: 200px;
+    }
+    .container-right {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+        padding-top: 10%;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+    .logo img {
+        height: 300px;
+        width: 1000%;
+    }
+    .bot {
+        display: flex;
+        justify-content: center;
+    }
+    .top {
+        display: flex;
+        justify-content: center;
+    }
+    .btn-primary {
+        background-color: maroon;
+    }
+    .btn-primary,
+    .btn-secondary {
+        border-radius: 10px;
+        outline: 0;
+    }
+    .bot {
+        display: flex;
+        justify-content: center;
+    }
+    .btns {
+        padding-top: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between !important;
+    }
+    a {
+        color: maroon;
+    }
+    .footer {
+        width: 100%;
+        height: 200px;
+        background-color: rgb(99, 93, 93);
+    }
+    .cleft {
+        width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    h4 {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+    .devs {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+    .cright {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(99, 93, 93);
+    }
+    .icons {
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        height: 30%;
+        width: 30%;
+    }
+    #a,
+    #b,
+    #c {
+        width: 40px;
+        height: 40px;
+    }
+    #a {
+        background: url(../image/facebook.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: transparent;
+    }
+    #b {
+        background: url(../image/gmail-logo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: transparent;
+    }
+    #c {
+        background: url(../image/instagram.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: transparent;
+    }
+}
+
+@media only screen and (min-width:1000px) {
+    #navbarSupportedContent {
+        display: flex;
+        justify-content: flex-end;
+    }
+    #navbarSupportedContent ul {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    body {
+        background-image: url(../image/bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-width: 100%;
+        min-height: 75vh;
+    }
+    .navbar-toggler-icon {}
+    .top {
+        display: flex;
+        justify-content: center;
+        font-weight: bolder;
+    }
+    .navbar-brand {
+        color: maroon;
+    }
+    .btns {
+        padding-top: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between !important;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .btn-primary {
+        background-color: maroon;
+        outline: 0 !important;
+        border: transparent;
+    }
+    .btn-primary,
+    .btn-secondary {
+        border-radius: 10px;
+    }
+    .bot {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .container_ {
+        height: 100vh;
+        width: 100%;
+    }
+    .container-left {
+        float: left;
+        width: 50%;
+        height: 100vh;
+    }
+    .container-right {
+        float: right;
+        width: 50%;
+        height: 100vh;
+        padding-right: 10%;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+    .logo img {
+        height: 300px;
+    }
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
+    a {
+        color: white;
+    }
+    .footer {
+        width: 100%;
+        height: 200px;
+        background-color: rgb(99, 93, 93);
+    }
+    .cleft {
+        float: left;
+        width: 50%;
+        height: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    .devs {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+    h4 {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+    .cright {
+        float: right;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .icons {
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        height: 30%;
+        width: 30%;
+    }
+    #a,
+    #b,
+    #c {
+        width: 40px;
+        height: 40px;
+    }
+    #a {
+        background: url(../image/facebook.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: transparent;
+    }
+    #b {
+        background: url(../image/gmail-logo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: transparent;
+    }
+    #c {
+        background: url(../image/instagram.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: transparent;
+    }
+}
