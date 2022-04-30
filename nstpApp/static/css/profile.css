@@ -1,36 +1,29 @@
-.prof {
-    padding: 20px;
-    width: 60%;
-    margin: auto;
-    background-color: rgb(255, 255, 255);
-    border: solid 1px rgb(179, 177, 177);
-    height: auto;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-}
-
-.btn {
-    float: right !important;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: solid 1px rgb(133, 133, 133);
-    margin: auto;
-    display: flex;
-}
-
-#perinfo {
-    color: rgb(175, 132, 2);
+.text {
     font-size: 20px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.prof {
+    height: auto;
+    width: 70%;
+    margin: auto;
+    justify-content: space-between;
+    background-color: rgb(70, 70, 70);
+    height: 70vh;
+    padding: 10px;
+}
+
+.pics {
+    width: 15%;
     float: left;
+}
+
+.pics .profile-pic {
+    width: 100%;
+}
+
+.right {
+    float: right;
+    width: 80%;
 }

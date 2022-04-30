@@ -116,6 +116,7 @@ class certifications(models.Model):
 class alphamodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     # alphaImage = models.ImageField(upload_to='images/', null=False)
     def __str__(self):
         return self.name
@@ -123,12 +124,14 @@ class alphamodel(models.Model):
 class bravomodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
 class charliemodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
@@ -136,18 +139,21 @@ class charliemodel(models.Model):
 class deltamodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
 
 class echomodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
 class foxtrotmodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
@@ -155,6 +161,7 @@ class foxtrotmodel(models.Model):
 class golfmodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
@@ -162,6 +169,7 @@ class golfmodel(models.Model):
 class hotelmodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
@@ -169,12 +177,14 @@ class hotelmodel(models.Model):
 class indiamodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
 class julietmodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
@@ -182,20 +192,18 @@ class julietmodel(models.Model):
 class kilomodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
 class limamodel(models.Model):
     name = models.CharField(max_length=20)
     pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
     
-class cwts(models.Model):
-    name = models.CharField(max_length=20)
-    pdf= models.FileField(upload_to='pdf/')
-    def __str__(self):
-        return self.name
+
     
     
 class carousel(models.Model):
@@ -203,5 +211,28 @@ class carousel(models.Model):
     
     def __str__(self):
         return self.imagefile
+    
+    
+    
+class sectiona(models.Model):
+    name = models.CharField(max_length=20)
+    pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
+    
+class sectionb(models.Model):
+    name = models.CharField(max_length=20)
+    pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
+    
+class sectionc(models.Model):
+    name = models.CharField(max_length=20)
+    pdf= models.FileField(upload_to='pdf/')
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
     
 

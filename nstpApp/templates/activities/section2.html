@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>india</title>
+    <title>section2</title>
     <link rel="stylesheet" href="{% static 'css/alpha.css' %}">
     <!-- <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> -->
 
@@ -15,13 +15,13 @@
     {% include 'activities/base.html' %}
     <div class="text">
 
-        <h1 class="headtext">India</h1>
+        <h1 class="headtext">Section B</h1>
 
 
     </div>
     <hr>
     <div class="files">
-        <a href="/student_india" class="refresh" style="text-decoration: none;">
+        <a href="/section2" class="refresh" style="text-decoration: none;">
             <box-icon name="refresh" color="#ffffff" class="icoon"></box-icon>
             <p class="rfs">Refresh</p>
         </a>&nbsp;<br><br><br>
@@ -30,7 +30,7 @@
         <div class="division">
             <div class="res">
                 <box-icon name='folder'></box-icon>
-                <h1 class="alphafiles">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; India Files</h1>
+                <h1 class="alphafiles">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Section B Files</h1>
             </div>
             &nbsp;<br>
             <div class="table-responsive">
@@ -44,7 +44,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for file in india_display %}
+                        {% for file in sectionb_display %}
                         <tr>
                             <th scope="row">{{file.name}}</th>
                             <td>{{file.date}}</td>

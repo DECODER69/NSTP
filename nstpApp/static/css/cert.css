@@ -1,0 +1,39 @@
+.text {
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.container {
+    border: 2px solid black;
+    border-radius: 25px;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 50px;
+    background-color: lightgray;
+    margin-top: 50px;
+}
+
+#btn_submit {
+    background-color: lightgreen;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#date_req {
+    text-decoration: underline;
+}
+
+.req_doc {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#req_doc {
+    text-decoration: underline;
+}
+
+#document {
+    margin-left: 20px;
+}

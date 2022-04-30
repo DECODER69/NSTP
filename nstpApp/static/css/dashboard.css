@@ -1,9 +1,9 @@
 .top_list {
     display: flex;
-    margin-left: 50px;
+    margin: auto;
     height: 200px;
+    width: 80%;
     justify-content: space-between;
-    ;
 }
 
 .counts {
@@ -12,4 +12,43 @@
     height: 150px;
     text-align: center;
     background-color: #c7c7c7;
+}
+
+.text {
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.announcements {
+    width: 80%;
+    margin: auto;
+    height: auto;
+}
+
+.ans-title {
+    background-color: #353b49;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.ans-content {
+    width: 100%;
+    margin-top: 30px!important;
+    border: solid 1px rgba(194, 194, 194, 0.393);
+}
+
+.title {
+    margin-left: 45px;
+    font-size: 30px;
+}
+
+.content {
+    margin-left: 100px;
+}
+
+.comment {
+    margin-left: 45px;
+    width: 90%;
 }

@@ -6,75 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>charlie</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
-
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <link rel="stylesheet" href="{% static 'css/alpha.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> -->
+
 </head>
 
 <body>
     {% include 'activities/base.html' %}
+    <div class="text">
 
+        <h1 class="headtext">Charlie</h1>
 
-    <!-- cards -->
-    <div class="card text-center">
-        <div class="card-header">
-            CHARLIE COMPANY
-        </div>
-        
-        <br>
-        <h5 class="card-title">TOPICS</h5>
 
     </div>
+    <hr>
+    <div class="files">
+        <a href="/student_charlie" class="refresh" style="text-decoration: none;">
+            <box-icon name="refresh" color="#ffffff" class="icoon"></box-icon>
+            <p class="rfs">Refresh</p>
+        </a>&nbsp;<br><br><br>
 
-    <!-- modal -->
 
-    <!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
-    </iframe> -->
-
-    <!-- table -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-
-                <table class="table table-striped">
+        <div class="division">
+            <div class="res">
+                <box-icon name='folder'></box-icon>
+                <h1 class="alphafiles">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Charlie Files</h1>
+            </div>
+            &nbsp;<br>
+            <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-
-                            <th scope="col">Filename</th>
-                            <th scope="col" class="dl">Download</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Download</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {% for file in charlie_display %}
-
                         <tr>
-
-                            <td>{{file.name}}</td>
-
+                            <th scope="row">{{file.name}}</th>
+                            <td>{{file.date}}</td>
                             <td>{% if file.pdf %}
                                 <button class="pdf"><a style="text-decoration:none" href="{{file.pdf.url}}" target="__blank">DOWNLOAD</a></button> {% endif %}
 
                             </td>
-
-
                         </tr>
                         {% endfor %}
-
                     </tbody>
                 </table>
-
-
             </div>
+
         </div>
+
+
+
+
     </div>
 
 
@@ -82,11 +70,8 @@
 
 
 
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="js/landingpage.js"></script>
 </body>
 
 </html>

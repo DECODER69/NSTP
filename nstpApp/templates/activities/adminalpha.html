@@ -127,51 +127,53 @@
 
     </div>
     <br> <br> <br>
-    <div>
-        <h1 style="text-align: center; margin:auto;">Students Grade</h1>
-        <div class="hehe">
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">FULL NAME</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Course and Section</th>
-                        <th scope="col">Grade</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for v in gradess %}
-                    <tr>
-                        <th scope="row">{{v.fname}} {{v.lname}}</th>
-                        <td>{{v.email}}</td>
-                        <td>{{v.section}}</td>
-                        <form action="{% url 'activities:d_alpha' %}" method="POST">
-                            {% csrf_token %}
 
-                            <td><input type="text" name="a_grades" value="{{v.grades}}" style="color: rgb(0, 0, 0); width:100px;">
-                                <input type="text" name="a_grades1" value="{{v.grades1}}" style="color: rgb(0, 0, 0); width:100px;">
-                            </td>
-                            <td><input type="hidden" name="getID1" value="{{v.id}}"><button class="update" id="submit" onclick="status()" type="submit"><i class="fa fa-check-circle" aria-hidden="true" style="color: rgb(8, 162, 0);">SAVE</i></button></td>
+    <div class="text">Announcements</div>
+    <hr>
+    <h1 class="uppertit">Type your Announcements here</h1><br>
+    <form class="inner" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="texts">
+            <input type="text" placeholder="Title" name="title" class="title" required>
+            <textarea rows="4" cols="100" name="announce_data" placeholder="Content" class="content" required></textarea>
+            <div class="btns">
+                <button type="submit" class="post">Post</button>
 
-                        </form>
-                    </tr>
-
-                    {% endfor %}
-
-                </tbody>
-            </table>
-
+            </div>
         </div>
+
+    </form><br>
+    <div class="viewhere">
+        <h1 class="uppertit">View Announcements here</h1><br>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="adjust">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in announcementss %}
+                <tr>
+                    <th scope="row" id="edit1" contenteditable="true">{{n.title}}</th>
+                    <td scope="row" id="edit2" contenteditable="true">{{n.content}}</td>
+                    <td class="butones">
+
+                        <button>Delete</button>
+                        <button>Save</button>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
     </div>
 
 
 
-
-    <!-- modal -->
-
-    <!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
-    </iframe> -->
 
 
     <script>
@@ -183,11 +185,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="{% static 'js_admin/alpha.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
 
 
 </body>

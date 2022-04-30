@@ -11,7 +11,7 @@ import nstpApp
 # from .models import registration
 from .models import certifications
 from .models import extenduser
-from .models import alphamodel, bravomodel, charliemodel, deltamodel, echomodel, foxtrotmodel, golfmodel, hotelmodel, indiamodel, julietmodel, kilomodel, limamodel, cwts, carousel
+from .models import alphamodel, bravomodel, charliemodel, deltamodel, echomodel, foxtrotmodel, golfmodel, hotelmodel, indiamodel, julietmodel, kilomodel, limamodel,  carousel, sectiona, sectionb, sectionc
 
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -84,7 +84,8 @@ def rotclist(request):
 def cwtslist1(request):
     list2 = extenduser.objects.filter(field='CWTS').filter(status='ENROLLED')
     return render(request, 'activities/cwtslist.html', {'list2': list2})
-    
+def cwtss(request):
+    return render(request, 'activities/Cwts.html')
 
 def cnt(request):
     cnt = extenduser.objects.filter(field='ROTC').count()
@@ -187,10 +188,12 @@ def dashboard(request):
 
 # @login_required(login_url='/login')
 def platoon(request):
-    return render(request, 'activities/Platoon.html')
-def cwtss(request):
-    display = cwts.objects.all()
-    return render(request, 'activities/Cwts.html', {'display': display})
+    plcount1 = extenduser.objects.filter(platoon='Alpha').filter(status='APPROVED').count()
+    context={
+        'plcount1': plcount1,
+    }
+    return render(request, 'activities/Platoon.html', context)
+
 
 
 
@@ -206,9 +209,7 @@ def certification(request):
 
 
 @login_required(login_url='/login')
-def admincwts(request):
-    fetch = cwts.objects.all()
-    return render(request, 'activities/admincwts.html', {'fetch': fetch})
+
 
 
 #                   STUDENT PLATOON DISPLAY
@@ -537,12 +538,13 @@ def registerprocess(request):
             field=request.POST.get('field')
             picture = request.FILES['picture']
             user = User.objects.create_user(username=username, password=password,)
+            
             newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
          password=password, section=section, field=field, user=user, picture=picture)
             newextenduser.save()
             auth.login(request, user)
             return render(request, 'activities/login.html')
-    else:
+    else: 
         return render(request, 'activities/login.html')
 
 # def registerprocess(request):
@@ -888,23 +890,23 @@ def lima(request):
     
     
 
-def cwtsupload(request):
-    if request.method == 'POST':    
+# def cwtsupload(request):
+#     if request.method == 'POST':    
 
-        cwts_file = request.FILES["document"]
-        cwts_name = request.POST["notes"]
-        file = cwts.objects.create(pdf=cwts_file, name=cwts_name)
-        file.save()
-        print("error")
-        return redirect('/admincwts')
-    else:
-        print("error2")
-        return redirect('/admincwts')
+#         cwts_file = request.FILES["document"]
+#         cwts_name = request.POST["notes"]
+#         file = cwts.objects.create(pdf=cwts_file, name=cwts_name)
+#         file.save()
+#         print("error")
+#         return redirect('/admincwts')
+#     else:
+#         print("error2")
+#         return redirect('/admincwts')
     
-def cwts_delete(request, id):
-    member = cwts.objects.get(id=id)
-    member.delete()
-    return redirect('/admincwts')
+# def cwts_delete(request, id):
+#     member = cwts.objects.get(id=id)
+#     member.delete()
+#     return redirect('/admincwts')
 
 def rotc_delete(request, id):
     pass
@@ -1033,8 +1035,27 @@ def profile(request):
 
 
 
+# CWTS
+
+
+def section1(request):
+    sectiona_display = sectiona.objects.all()
+    return render(request, 'activities/section1.html', {'sectiona_display':sectiona_display})
+
+def section2(request):
+    sectionb_display = sectionb.objects.all()
+    return render(request, 'activities/section2.html', {'sectionb_display':sectionb_display})
+
+def section3(request):
+    sectionc_display = sectionc.objects.all()
+    return render(request, 'activities/section3.html', {'sectionc_display':sectionc_display})
+
+
+
 
     
 
-                         
+
+    
+
                          

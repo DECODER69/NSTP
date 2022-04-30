@@ -59,10 +59,10 @@ urlpatterns = [
     # path('alphacount/', views.alphacount, name='alphacount'),
     # path('counts/', views.counts, name='counts'),
 
-    path('admincwts/', views.admincwts, name='admincwts'),
-    path('cwtslist1', views.cwtslist1, name='cwtslist1'),
-    path('cwtsupload/', views.cwtsupload, name='cwtsupload'),
-    path('cwts_delete/<str:id>', views.cwts_delete, name='cwts_delete'),
+    # path('admincwts/', views.admincwts, name='admincwts'),
+    # path('cwtslist1', views.cwtslist1, name='cwtslist1'),
+    # path('cwtsupload/', views.cwtsupload, name='cwtsupload'),
+    # path('cwts_delete/<str:id>', views.cwts_delete, name='cwts_delete'),
     path('dashboardupload/', views.dashboardupload, name='dashboardupload'),
     path('footer/', views.footer, name='footer'),
     path('deleteimage/<str:id>', views.deleteimage, name='deleteimage'),
@@ -143,6 +143,10 @@ urlpatterns = [
     path('juliet_delete/<str:id>', views.juliet_delete, name='juliet_delete'),
     path('kilo_delete/<str:id>', views.kilo_delete, name='kilo_delete'),
     path('lima_delete/<str:id>', views.lima_delete, name='lima_delete'),
+    
+    path('section1/', views.section1, name='section1'),
+    path('section2/', views.section2, name='section2'),
+    path('section3/', views.section3, name='section3'),
     
 #                     END OF PLATOON DELETION
 
