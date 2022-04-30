@@ -18,8 +18,9 @@
         min-width: 100%;
         min-height: 75vh;
     }
-    .collapse {
+    .nav-item {
         text-align: center;
+        margin: auto;
     }
     .container-left {
         display: grid;
