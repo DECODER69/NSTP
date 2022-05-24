@@ -6,85 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard_Admin</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
     <link rel="stylesheet" href="{% static 'css_admin/dashboard.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
 </head>
 
 <body>
-    {% include 'activities/NavAdmin.html' %} {% comment %} {% for i in users %}
-    <h1>Welcome {{i.last_name}}</h1>
+    {% include 'activities/NavAdmin.html' %}
+    <div class="headtext">Dashboard</div>
 
-    {% endfor %} {% endcomment %}
+    <hr>
+    <br>
+    <div class="cards">
+        <div class="card1" id="pending">
+            <i class="bi bi-alarm-fill bi-10x"></i>
+            <div class="dta">
+                <a href="/approval">
+                    <h1 class="counts">{{count01}}</h1>
+                </a>
 
-    <!-- Grid -->
-    <div class="frames">
-        <div class="uploades col-5">
-            <form action="{% url 'activities:dashboardupload' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="file-upload">
-                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                <h1 class="tit">Pending</h1>
+            </div>
 
-                    <div class="image-upload-wrap">
+        </div>
+        <br>
+        <div class="card1" id="enrolled">
+            <i class="bi bi-card-checklist"></i>
+            <div class="dta">
+                <h1 class="counts">{{count02}}</h1>
+                <h1 class="tit">Enrolled</h1>
+            </div>
+        </div>
+        <br>
+        <div class="card1" id="rotc">
+            <i class="bi bi-people-fill"></i>
+            <div class="dta">
+                <a href="/enrolledrotc">
+                    <h1 class="counts">{{count03}}</h1>
+                </a>
 
-                        <input name="upload" class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" />
-                        <div class="drag-text">
-                            <h3>Drag and drop a file or select add Image</h3>
-                        </div>
-                    </div>
-                    <div class="file-upload-content">
-                        <img class="file-upload-image" src="#" alt="your image" />
-                        <div class="image-title-wrap">
-                            <button class="remove-image" id="remove-image" type="submit">Upload</button>
-                            <h1></h1>
-
-                            <span class="image-title">Uploaded Image</span>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
+                <h1 class="tit">ROTC</h1>
+            </div>
+        </div>
+        <div class="card1" id="cwts">
+            <i class="bi bi-people-fill"></i>
+            <div class="dta">
+                <h1 class="counts">{{count04}}</h1>
+                <h1 class="tit">CWTS</h1>
+            </div>
         </div>
 
 
-        <div class="uploaded col-5">
-
-            <h1 style="text-align: center;">Landing page Images</h1>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">View</th>
-                        <th scope="col">Delete</th>
-                    </tr>
-                </thead>
-                <tbody class="bodys">
-                    {% for image in imagex %}
-                    <tr>
-                        <td>{{image.imagefile}}</td>
-                        <td class="view">{% if image.imagefile %}
-                            <a style="text-decoration:none" href="{{image.imagefile.url}}" target="_blank">VIEW</a>{% endif %}
-                        </td>
-                        <td class="delete"><a style="text-decoration:none" href="{% url 'activities:deleteimage' image.id %}">DELETE</a></td>
-
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-            </table>
-
-
-            <!-- Calendar -->
-
-
-
-
-        </div>
-    </div><br>
+    </div>
 
 
 
@@ -92,17 +66,6 @@
 
 
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="{% static 'js_admin/alpha.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-    <script src="/your_path/jquery.nicefileinput.min.js"></script>
-    <script src="{% static 'js/calendar.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js_admin/dashboard.js' %}" type="text/javascript"></script>
 </body>
 
 </html>

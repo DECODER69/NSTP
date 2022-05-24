@@ -20,78 +20,77 @@
 
 <body>
     {% include 'activities/NavAdmin.html' %}
-
+    <div class="headtext">Documents</div>
+    <hr>
 
     <div class="tableCon">
+
+
+
+
+
+
         <br>
-        <h1 class="Head">DOCUMENTS</h1>
-        <div class="row">
 
 
+        <table class="table1 table table-striped " id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">FULLNAME</th>
+                    <th scope="col">COURSE</th>
+                    <th scope="col">REQUESTED DOCUMENT</th>
+                    <th scope="col">APPOINTMENT DATE</th>
+                    <th scope="col">STATUS</th>
+
+                    <th scope="col" class="text-center">ACTION</th>
 
 
-
-            <br>
-
-
-            <table class="table1 table table-striped " id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-                <thead class="thead-dark">
+                </tr>
+            </thead>
+            <tbody>
+                {% for k in request1 %}
+                <form action="{% url 'activities:update' %}" method="post">
+                    {% csrf_token %}
                     <tr>
-                        <th scope="col">EMAIL</th>
-                        <th scope="col">FULLNAME</th>
-                        <th scope="col">COURSE</th>
-                        <th scope="col">REQUESTED DOCUMENT</th>
-                        <th scope="col">APPOINTMENT DATE</th>
-                        <th scope="col">STATUS</th>
+                        <th scope="row">{{k.email}}</th>
+                        <td id="certname" name="fullname">{{k.fname}} {{k.lname}}</td>
+                        <td>{{k.section}}</td>
 
-                        <th scope="col" class="text-center">ACTION</th>
-
-
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for k in request1 %}
-                    <form action="{% url 'activities:update' %}" method="post">
-                        {% csrf_token %}
-                        <tr>
-                            <th scope="row">{{k.email}}</th>
-                            <td id="certname" name="fullname">{{k.fname}} {{k.lname}}</td>
-                            <td>{{k.section}}</td>
-
-                            <td name="docum">{{k.cert_document}}</td>
-                            <td name="datereq">{{k.cert_datereq}}</td>
+                        <td name="docum">{{k.cert_document}}</td>
+                        <td name="datereq">{{k.cert_datereq}}</td>
 
 
 
-                            <td>
-                                <select name="status" id="status">
+                        <td>
+                            <select name="status" id="status">
                                 <option value="{{k.cert_status}}">{{k.cert_status}}</option>
                                 <option value="PENDING">PENDING</option>
                                 <option value="APPROVED">APPROVED</option>
                             </select></td>
 
-                            <td class="btns"><input type="hidden" name="getID" value="{{k.id}}"><button class="update" id="submit" onclick="sweetalert()" type="submit"><i class="fa fa-check-circle" aria-hidden="true" style="color: rgb(8, 162, 0);">Update</i></button>
-                                <button class="delete" disabled><a href="{% url 'activities:delete' k.id %}"style="text-decoration: none;" id="delete"  name="delete"><i class="bi bi-trash" aria-hidden="true" >Delete</i></a></button>
-                                <button class="pdf" disabled><a href="{% url 'activities:pdfb' k.id%}" style="text-decoration: none;" name="pdfbtn" target="__blank"><i class="bi bi-file-earmark-pdf">Pdf</i></a></button>
+                        <td class="btns"><input type="hidden" name="getID" value="{{k.id}}"><button class="update" id="submit" onclick="sweetalert()" type="submit"><i class="fa fa-check-circle" aria-hidden="true" style="color: rgb(8, 162, 0);">Update</i></button>
+                            <!-- <button type class="delete" disabled><a href="{% url 'activities:delete' k.id %}" style="text-decoration: none;" id="delete" name="delete"><i class="bi bi-trash" aria-hidden="true" >Delete</i></a></button> -->
+                            <button class="pdf" disabled><a href="{% url 'activities:pdfb' k.id%}" style="text-decoration: none;" name="pdfbtn" target="__blank"><i class="bi bi-file-earmark-pdf">Pdf</i></a></button>
 
-                            </td>
-                        </tr>
-
-
-                    </form>
+                        </td>
+                    </tr>
 
 
+                </form>
 
 
-                    {% endfor %}
-
-                </tbody>
-
-            </table>
-            <hr>
 
 
-        </div>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+        <hr>
+
+
+    </div>
 
 
 

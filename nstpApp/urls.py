@@ -150,5 +150,6 @@ urlpatterns = [
     
 #                     END OF PLATOON DELETION
 
+    path('approval/', views.approval, name='approval'),
    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,63 @@
+.table1 {
+    display: none;
+}
+
+#rotc {
+    width: 50%;
+    height: auto;
+    background-color: #dc3545;
+}
+
+.thead {
+    background-color: #132f4b;
+    color: #ffffff;
+}
+
+.divv {
+    display: flex;
+}
+
+.headtext {
+    font-size: 30px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.opt {
+    display: flex;
+    justify-content: space-between;
+}
+
+#target {
+    margin-right: 40px;
+    margin-top: 10px;
+    background-color: #dc3545;
+    border-style: hidden;
+    color: #ffffff;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
+.overall {
+    width: 20%;
+    height: auto;
+    padding-left: 10px;
+}
+
+.sss {
+    font-size: 20px;
+}
+
+.select {
+    float: right;
+    margin-right: 40px;
+}
+
+#btnn {
+    float: right;
+    margin: auto;
+    width: 50%;
+    margin-right: 40px;
+}

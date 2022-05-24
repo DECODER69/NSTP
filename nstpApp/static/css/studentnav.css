@@ -7,5 +7,14 @@
 }
 
 .navbar-brand {
-    color: aliceblue !important;
+    color: rgb(2, 24, 44) !important;
+    display: flex;
+    font-size: 100px;
+}
+
+#nstp {
+    color: rgb(255, 255, 255)!important;
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
 }

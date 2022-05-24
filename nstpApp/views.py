@@ -45,8 +45,8 @@ def new_navbarstudent(request):
     return render(request, 'activities/new_navbar.html')
 
 def index(request):
-    images=carousel.objects.all()
-    return render(request, 'activities/index.html', {'images': images})
+    
+    return render(request, 'activities/landing_page.html')
 def login(request):
     return render(request, 'activities/login.html')
 def register(request):
@@ -104,7 +104,13 @@ def admincwtslist(request):
     clist = extenduser.objects.filter(field='CWTS').filter(status='PENDING')
     return render(request, 'activities/admincwtslist.html', {'clist': clist})
 
-
+def approval(request):
+    approtc = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
+    appcwts = extenduser.objects.filter(field='CWTS').filter(status='PENDING')
+    
+    
+    return render(request, 'activities/approval.html', {'approtc': approtc, 'appcwts': appcwts})
+    
 
 def enrolledrotc(request):
     
@@ -291,9 +297,19 @@ def adminlogin(request):
 
 
 def admindashboard(request):
-    imagex=carousel.objects.all()
-    # users = User.objects.all()
-    return render(request, 'activities/admindashboard.html', {'imagex': imagex})
+    count01 = extenduser.objects.filter(status='PENDING').count()
+    count02 = extenduser.objects.filter(status='APPROVED').count()
+    count03 = extenduser.objects.filter(field = 'ROTC').filter(status = 'ENROLLED').count()
+    count04 = extenduser.objects.filter(field = 'CWTS').filter(status = 'ENROLLED').count()
+    
+    context = {
+        'count01': count01,
+        'count02': count02,
+        'count03': count03,
+        'count04': count04,
+    }
+    
+    return render(request, 'activities/admindashboard.html', context)
 
 def deleteimage(request, id):
     carouimage = carousel.objects.get(id=id)
@@ -654,9 +670,9 @@ def delete_request(request):
 #     data.delete()
 #     return redirect('/admincertificate')    
 def delete(request, id):
-    member = certifications.objects.get(id=id)
+    req = extenduser.objects.get(id=id)
     if request.method == 'POST':
-        member.delete()
+        req.delete()
         return redirect('/admincertificate')
     return render(request, 'activities/delete.html')
 
