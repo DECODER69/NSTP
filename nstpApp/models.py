@@ -83,6 +83,7 @@ class extenduser(models.Model):
     is_staff = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # sendmail = models.CharField(max_length=20, default='PENDING')
     
 
     

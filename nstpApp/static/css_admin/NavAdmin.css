@@ -18,3 +18,18 @@
     font-size: 27px;
     font-weight: bold;
 }
+
+#log {
+    color: rgb(255, 255, 255);
+    float: right;
+    background-color: rgb(233, 67, 67);
+    border-radius: 5px;
+}
+
+#logouts {
+    float: right !important;
+    width: 100%;
+    right: 0;
+    color: rgb(255, 255, 255);
+    text-align: right;
+}

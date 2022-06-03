@@ -31,7 +31,7 @@
     <form action="{% url 'activities:registerprocess' %}" id="cards" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <a href="../../landing_page/index.html">
+        <a href="/">
             <div class="top">
                 <a href="{% url 'activities:index' %}" id="logo"><img src="{% static 'image/tup.png' %}"></a>
                 <h5>Technological University of the Philippines</h5>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css_admin/cust.css' %}">
+    <link rel="stylesheet" href="{% static 'css_admin/email.css' %}">
+</head>
+
+<body>
+    {% include 'activities/NavAdmin.html' %}
+    <div class="headtext">Custom Email</div>
+    <hr>
+
+    <div class="tableCon">
+        <form action="{% url 'activities:sendmail_confirm' %}" method="post">
+            <div class="divv">
+                <span class="sss"><input type="checkbox" onClick="toggle(this)" name="select-all" id="select-all">   Select All</span>
+                <button type="submit" class="btn btn-success" id="send">Send Email</button>
+            </div>&nbsp;
+
+            <br>
+            <table class="table1 table table-striped " id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">FULLNAME</th>
+                        <th scope="col">COURSE</th>
+                        <th scope="col">REQUESTED DOCUMENT</th>
+                        <th scope="col">APPOINTMENT DATE</th>
+                        <th scope="col">STATUS</th>
+
+                        <th scope="col" class="text-center">EMAIL</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for k in hehe1 %} {% csrf_token %}
+                    <tr>
+                        <th scope="row">
+                            <a href="{% url 'activities:custemail' k.id%}" target="_self"><input type="checkbox" name="checked" value="{{k.email}}">&nbsp;{{k.email}}</a>
+                        </th>
+        </form>
+
+        <td id="certname" name="fullname">{{k.fname}} {{k.lname}}</td>
+        <td>{{k.section}}</td>
+        <td name="docum">{{k.cert_document}}</td>
+        <td name="datereq">{{k.cert_datereq}}</td>
+
+
+
+        <td style="color:rgb(43, 162, 4)">{{k.cert_status}}</td>
+        <form action="{% url 'activities:sendmail_manual' %}" method="post">
+            {% csrf_token %}
+            <td id="bttt"><input type="hidden" name="chec" value="{{k.email}}"><a><button type="submit" class="btn btn-warning" >{{k.grades}}</button></a></td>
+        </form>
+        </tr>
+
+
+
+
+
+
+
+        {% endfor %}
+
+        </tbody>
+
+        </table>
+        <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div>{% for k in ems %}
+            <form action="{% url 'activities:custom'%}" method="post">
+                {% csrf_token %}
+
+
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Compose Email</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                        <input type="email" name="cusemail" value="{{k.email}}" required id="rec">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Subject:</label>
+                                        <input type="text" name="emailtext" placeholder="SUBJECT" required id="sub">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message-text" name="message" required></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/email"><button type="button" class="btn btn-secondary" >Close</button></a>
+                                <button type="submit" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+            {% endfor %}
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#exampleModal").modal('show');
+            });
+        </script>
+
+</body>
+
+</html>

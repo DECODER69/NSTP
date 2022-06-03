@@ -144,6 +144,18 @@ STATICFILES_DIRS=[(os.path.join(BASE_DIR,'static'))]
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'tupc.nstp@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'hbwxbktnlorjihsq'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

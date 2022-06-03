@@ -15,7 +15,7 @@
     <div class="text">
         <h1 class="headtext">Profile</h1>
     </div>
-
+    <hr>
 
     <div class="prof">
 
@@ -29,13 +29,13 @@
             <div class="right">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="First name" value="{{e.fname}}" name="firstn">
+                        <input type="text" class="form-control" placeholder="First name" value="{{e.fname}}" name="firstn" disabled>
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" name="lastn" Value="{{e.lname}}" disabled>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" value="{{e.minitial}}" name="minitial">
+                        <input type="text" class="form-control" value="{{e.minitial}}" name="minitial" disabled>
                     </div>
                 </div><br>
                 <div class="row">
@@ -66,7 +66,7 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Field" value="{{e.field}}">
+                        <input type="text" class="form-control" placeholder="Field" value="{{e.field}}" disabled>
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Course and Section" value="{{e.section}}" name="section">

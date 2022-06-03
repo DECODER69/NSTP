@@ -1,0 +1,40 @@
+.text {
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.thead {
+    background-color: #ffffff;
+}
+
+.split {
+    display: flex;
+    justify-content: space-between;
+}
+
+.split1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headtext {
+    font-size: 30px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+#rec {
+    float: right;
+    width: 80%;
+}
+
+#sub {
+    float: right;
+    width: 80%;
+}
+
+#message-text {
+    float: right;
+    width: 80%;
+}

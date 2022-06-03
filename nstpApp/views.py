@@ -29,6 +29,8 @@ from django.http import FileResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 
+from django.core.mail import send_mail
+
 
 
 idnum=''
@@ -192,7 +194,7 @@ def dashboard(request):
 #     requests = certifications.objects.filter(user = request.user)
 #     return render(request, 'activities/certification.html', {'requests': requests})
 
-# @login_required(login_url='/login')
+@login_required(login_url='/login')
 def platoon(request):
     plcount1 = extenduser.objects.filter(platoon='Alpha').filter(status='APPROVED').count()
     context={
@@ -295,6 +297,7 @@ def student_lima(request):
 def adminlogin(request):
     return render(request, 'activities/login-admin.html')
 
+@login_required(login_url='/orglogin')
 
 def admindashboard(request):
     count01 = extenduser.objects.filter(status='PENDING').count()
@@ -310,28 +313,28 @@ def admindashboard(request):
     }
     
     return render(request, 'activities/admindashboard.html', context)
-
+@login_required(login_url='/orglogin')
 def deleteimage(request, id):
     carouimage = carousel.objects.get(id=id)
     if request.method == 'POST':
         carouimage.delete()
         return redirect('/admindashboard')
     return render(request, 'activities/imagedelete.html')
-
+@login_required(login_url='/orglogin')
 def pdf(request, id):
     ss = certifications.objects.get(id=id)
     return render(request, 'activities/certificate.html', {'ss': ss})
     
 
 
-
+@login_required(login_url='/orglogin')
 def admincertificate(request):
     request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='')
     return render(request, 'activities/admincertification.html', {'request1': request1})
 
 def navadmin(request):
     return render(request, 'activities/NavAdmin.html')
-
+@login_required(login_url='/orglogin')
 def pdfb(request, id):
     namess = extenduser.objects.filter(id=id)
     return render(request, 'activities/certificate.html', {'namess': namess})
@@ -344,11 +347,11 @@ def certi(request):
     return render(request, 'activities/certificate.html')
 
 # admin platoon display
-
+@login_required(login_url='/orglogin')
 def adminplatoon(request):
 
     return render(request, 'activities/adminplatoons.html')
-
+@login_required(login_url='/orglogin')
 def d_alpha(request):
     alpha_display = alphamodel.objects.all()
     gradess = extenduser.objects.filter(platoon='Alpha')
@@ -371,7 +374,7 @@ def d_alpha(request):
 #         'gradess': gradess,
 #     }
 #     return render(request, 'activities/adminalpha.html', context)
-
+@login_required(login_url='/orglogin')
 def d_bravo(request):
     bravo_display = bravomodel.objects.all()
     bravo_grade = extenduser.objects.filter(platoon='Bravo')
@@ -385,7 +388,7 @@ def d_bravo(request):
         b_grades1 = request.POST.get('b_grades1')
         extenduser.objects.filter(id=enr2).update(grades=b_grades, grades1=b_grades1)
     return render(request, 'activities/adminbravo.html', context)
-
+@login_required(login_url='/orglogin')
 def d_charlie(request):
     charlie_display=charliemodel.objects.all()
     charlie_grade = extenduser.objects.filter(platoon='Charlie')
@@ -399,7 +402,7 @@ def d_charlie(request):
         c_grades1 = request.POST.get('c_grades1')
         extenduser.objects.filter(id=enr2).update(grades=c_grades, grades1=c_grades1)
     return render(request, 'activities/admincharlie.html', context)
-
+@login_required(login_url='/orglogin')
 def d_delta(request):
     delta_display = deltamodel.objects.all()
     delta_grade = extenduser.objects.filter(platoon='Delta')
@@ -413,7 +416,7 @@ def d_delta(request):
         d_grades1 = request.POST.get('d_grades1')
         extenduser.objects.filter(id=enr2).update(grades=d_grades, grades1=d_grades1)
     return render(request, 'activities/admindelta.html', context)
-
+@login_required(login_url='/orglogin')
 def d_echo(request):
     echo_display = echomodel.objects.all()
     echo_grade = extenduser.objects.filter(platoon='Echo')
@@ -427,7 +430,7 @@ def d_echo(request):
         e_grades1 = request.POST.get('e_grades1')
         extenduser.objects.filter(id=enr2).update(grades=e_grades, grades1=e_grades1)
     return render(request, 'activities/adminecho.html', context)
-
+@login_required(login_url='/orglogin')
 def d_foxtrot(request):
     foxtrot_display = foxtrotmodel.objects.all()
     foxtrot_grade = extenduser.objects.filter(platoon='Foxtrot')
@@ -441,7 +444,7 @@ def d_foxtrot(request):
         f_grades1 = request.POST.get('f_grades1')
         extenduser.objects.filter(id=enr2).update(grades=f_grades, grades1=f_grades1)
     return render(request, 'activities/adminfoxtrot.html', context)
-
+@login_required(login_url='/orglogin')
 def d_golf(request):
     golf_display = golfmodel.objects.all()
     golf_grade = extenduser.objects.filter(platoon='Golf')
@@ -456,7 +459,7 @@ def d_golf(request):
         extenduser.objects.filter(id=enr2).update(grades=g_grades, grades1=g_grades1)
     
     return render(request, 'activities/admingolf.html', context)
-
+@login_required(login_url='/orglogin')
 def d_hotel(request):
     hotel_display = hotelmodel.objects.all()
     hotel_grade = extenduser.objects.filter(platoon='Hotel')
@@ -470,7 +473,7 @@ def d_hotel(request):
         h_grades1 = request.POST.get('h_grades1')
         extenduser.objects.filter(id=enr2).update(grades=h_grades, grades1=h_grades1)
     return render(request, 'activities/adminhotel.html', context)
-
+@login_required(login_url='/orglogin')
 def d_india(request):
     india_display = indiamodel.objects.all()
     india_grade = extenduser.objects.filter(platoon='India')
@@ -484,7 +487,7 @@ def d_india(request):
         i_grades1 = request.POST.get('i_grades1')
         extenduser.objects.filter(id=enr2).update(grades=i_grades, grades1=i_grades1)
     return render(request, 'activities/adminindia.html', context)
-
+@login_required(login_url='/orglogin')
 def d_juliet(request):
     juliet_display = julietmodel.objects.all()
     india_grade = extenduser.objects.filter(platoon='Juliet')
@@ -498,7 +501,7 @@ def d_juliet(request):
         i_grades1 = request.POST.get('i_grades1')
         extenduser.objects.filter(id=enr2).update(grades=i_grades, grades1=i_grades1)
     return render(request, 'activities/adminjuliet.html', context)
-
+@login_required(login_url='/orglogin')
 def d_kilo(request):
     kilo_display = kilomodel.objects.all()
     kilo_grade = extenduser.objects.filter(platoon='Kilo')
@@ -512,7 +515,7 @@ def d_kilo(request):
         k_grades1 = request.POST.get('k_grades1')
         extenduser.objects.filter(id=enr2).update(grades=k_grades, grades1=k_grades1)
     return render(request, 'activities/adminkilo.html', context)
-
+@login_required(login_url='/orglogin')
 def d_lima(request):
     lima_display = limamodel.objects.all()
     lima_grade = extenduser.objects.filter(platoon='Lima')
@@ -557,11 +560,28 @@ def registerprocess(request):
             
             newextenduser = extenduser( lname=lname, fname=fname, minitial=minitial, address=address, cpnumber=cpnumber, email=email, gender=gender, age=age, bdate=bdate, 
          password=password, section=section, field=field, user=user, picture=picture)
+            profile.is_staff = False
+            profile.is_superuser = False
             newextenduser.save()
             auth.login(request, user)
             return render(request, 'activities/login.html')
     else: 
         return render(request, 'activities/login.html')
+def adminreg( request):
+    return render(request, 'activities/adminregister.html')
+def adregister(request):
+    orgname= request.POST.get('orgname')
+    orgemail = request.POST.get('orgemail')
+    orgusername = request.POST.get('orgusername')
+    orgpassword = request.POST.get('orgpassword')
+    profile = User.objects.create_user(username=orgusername, password=orgpassword, first_name=orgname,email=orgemail )
+    profile.is_staff = True
+    profile.is_superuser = True
+    profile.save()
+    return redirect('/orglogin')
+
+
+
 
 # def registerprocess(request):
 #     form =UserCreationForm(request)
@@ -594,10 +614,14 @@ def registerprocess(request):
 def userlogin(request):
     if request.method == 'POST':
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
-        if user is not None:
-            auth.login(request, user)
-            return redirect('/dashboard')
+        if user: 
+            if user is not None and user.is_active==True and user.is_superuser==False:
+                auth.login(request, user)
+                return redirect('/dashboard')
+            else:
+                return render(request, 'activities/login.html')
         else:
+            messages.error(request, 'Invalid username or password')
             return render(request, 'activities/login.html')
     else:
         return render(request, 'activities/Dashboard.html')
@@ -614,12 +638,14 @@ def userlogin(request):
 
 
 
-def admin2(request):
+def orglogin(request):
+    if request.user.is_authenticated:
+        return redirect('/admindashboard')
     if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = auth.authenticate(username=username, password=password)
-        if user is not None:
+        username = request.POST.get('orgusername')
+        password = request.POST.get('orgpassword')
+        user = authenticate(username=username, password=password)
+        if user is not None and user.is_active and user.is_superuser == True:
             auth.login(request, user)
             return redirect('/admindashboard')
         else:
@@ -643,7 +669,7 @@ def logout_user(request):
     logout(request)
     return redirect('/')
 
-
+@login_required(login_url='/orglogin')
 def delete_request(request):
     if request.method == 'POST':
         cert_datereq = request.POST.get('docum')
@@ -669,6 +695,7 @@ def delete_request(request):
 #     data = certifications.objects.get(id=cert_email)
 #     data.delete()
 #     return redirect('/admincertificate')    
+@login_required(login_url='/orglogin')
 def delete(request, id):
     req = extenduser.objects.get(id=id)
     if request.method == 'POST':
@@ -682,7 +709,7 @@ def deleteform(request):
     
 
 
-
+@login_required(login_url='/orglogin')
 def update(request):
     stat1 = request.POST.get('status')
     stat2 = request.POST.get('getID')
@@ -691,11 +718,12 @@ def update(request):
     return redirect('/admincertificate')
 
 def enrollupdate(request):
-    en1 = request.POST.get('status')
-    en2 = request.POST.get('getID')
+    en1 = request.POST.get('approv')
+    en2 = request.POST.get('getIDup')
     extenduser.objects.filter(id=en2).update(status=en1)
-    return redirect('/adminrotclist')
+    return redirect('/approval')
 
+@login_required(login_url='/orglogin')
 def platoonupdate(request):
     if request.method == 'POST':
         enr1 = request.POST.get('plat')
@@ -703,7 +731,9 @@ def platoonupdate(request):
         
         extenduser.objects.filter(id=enr2).update(platoon=enr1)
     return redirect('/enrolledrotc')
-    
+
+
+@login_required(login_url='/orglogin')
 def sectionupdate(request):
     if request.method == 'POST':
         sec1 = request.POST.get('sec')
@@ -726,7 +756,7 @@ def sectionupdate(request):
 
 
                                 #START PLATOON UPLOADS
-
+@login_required(login_url='/orglogin')
 def alpha(request):
     if request.method == 'POST':    
 
@@ -1075,3 +1105,57 @@ def section3(request):
     
 
                          
+# EMAILLLLLLLLLLLL
+def email(request):
+    hehe = extenduser.objects.filter(cert_status='APPROVED')
+    return render(request, 'activities/email.html', {'hehe':hehe})
+
+
+def sendmail_confirm( request):
+    if request.method == 'POST':
+        emails = request.POST.getlist('checked')
+        send_mail('NSTP Documents', 
+                'Hello this is an email from NSTP Department. We are here to advice you to claim your requested documents. thank you!',
+                'NSTP',
+                ((emails)),
+                fail_silently=False)
+        extenduser.objects.filter(email=emails).update(grades='Email sent')
+        print(emails)
+    return redirect('/email')
+
+
+
+
+
+def sendmail_manual( request):
+    if request.method == 'POST':
+        emailss = request.POST.get('chec')
+        send_mail('NSTP Documents', 
+                'Hello this is an email from NSTP Department. We are here to advice you to claim your requested documents. thank you!',
+                'NSTP',
+                [emailss],
+                fail_silently=False)
+        extenduser.objects.filter(email=emailss).update(grades='Email sent')
+        print(emailss)
+    return redirect('/email')
+
+
+def custom(request):
+    if request.method == 'POST':
+        sub = request.POST.get('emailtext')
+        msg = request.POST.get('message')
+        emaila = request.POST.get('cusemail')
+        send_mail(sub, msg,'tupc.nstp@gmail.com',[emaila])
+        return redirect('/email')
+    return redirect('/email')
+
+def custemail(request, id):
+    hehe1 = extenduser.objects.filter(cert_status='APPROVED')
+    ems = extenduser.objects.filter(id=id)
+    context={
+        'hehe1':hehe1,
+        'ems':ems
+    }
+    return render(request, 'activities/customemail.html', context)
+        
+    

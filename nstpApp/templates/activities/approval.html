@@ -40,22 +40,26 @@
                 </thead>
                 <tbody>
                     {% for s in approtc %}
-                    <tr>
+                    <form action="{% url 'activities:enrollupdate' %}" method="POST">
+                        {% csrf_token %}
+                        <tr>
 
-                        <th scope="row"><input type="checkbox" name="checked" value="{{s.id}}" id="checked"> &nbsp;{{s.fname}} {{s.lname}}</th>
-                        <td>{{s.section}}</td>
-                        <td>
-                            <select>
+                            <th scope="row"><input type="checkbox" name="checked" value="{{s.id}}" id="checked"> &nbsp;{{s.fname}} {{s.lname}}</th>
+                            <td>{{s.section}}</td>
+                            <td>
+                                <select name="approv">
                             <option value="">Select</option>
                             <option value="ENROLLED">Enrolled</option>
                             <option value="REJECTED">Rejected</option>
                         </select>
-                        </td>
-                        <td>
-                            <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"> Update</i></button>
-                        </td>
-                    </tr>
+                            </td>
+                            <td>
+                                <input type="hidden" name="getIDup" value="{{s.id}}"><button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"> Update</i></button>
+                            </td>
+                        </tr>
+                    </form>
                     {% endfor %}
+
                 </tbody>
             </table>
             <div class="overall">

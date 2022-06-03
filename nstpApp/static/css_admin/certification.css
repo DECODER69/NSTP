@@ -297,3 +297,28 @@ iframe {
         font-weight: bolder;
     }
 }
+
+.text {
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.thead {
+    background-color: #ffffff;
+}
+
+.split {
+    display: flex;
+    justify-content: space-between;
+}
+
+.split1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#btn {
+    float: right;
+    color: #ffffff;
+}

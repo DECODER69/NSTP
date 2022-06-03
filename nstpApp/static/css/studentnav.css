@@ -1,5 +1,6 @@
 .navbar-nav {
-    align-items: center!important;
+    /* align-items: center!important; */
+    width: 100%;
 }
 
 .nav-link {
@@ -17,4 +18,18 @@
     text-align: center;
     font-size: 27px;
     font-weight: bold;
+}
+
+#log {
+    color: rgb(255, 255, 255);
+    float: right;
+    width: 65%;
+}
+
+#logouts {
+    float: right !important;
+    width: 100%;
+    right: 0;
+    color: rgb(255, 255, 255);
+    text-align: right;
 }
