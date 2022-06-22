@@ -33,8 +33,6 @@ from django.core.mail import send_mail
 
 
 
-idnum=''
-password=''
 
 
 
@@ -335,6 +333,8 @@ def admincertificate(request):
 def navadmin(request):
     return render(request, 'activities/NavAdmin.html')
 @login_required(login_url='/orglogin')
+
+
 def pdfb(request, id):
     namess = extenduser.objects.filter(id=id)
     return render(request, 'activities/certificate.html', {'namess': namess})
@@ -1126,7 +1126,6 @@ def sendmail_confirm( request):
 
 
 
-
 def sendmail_manual( request):
     if request.method == 'POST':
         emailss = request.POST.get('chec')
@@ -1135,7 +1134,7 @@ def sendmail_manual( request):
                 'NSTP',
                 [emailss],
                 fail_silently=False)
-        extenduser.objects.filter(email=emailss).update(grades='Email sent')
+        
         print(emailss)
     return redirect('/email')
 
@@ -1157,5 +1156,9 @@ def custemail(request, id):
         'ems':ems
     }
     return render(request, 'activities/customemail.html', context)
+
+
+def RequestPasswordResetEmail(View):
+    def get(self, request):
         
-    
+        return render(request, 'register/password_reset_form.html')

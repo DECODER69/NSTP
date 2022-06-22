@@ -18,12 +18,20 @@
 /* cERTcSS */
 
 .download {
+    font-size: 30px;
     margin-top: 20px;
     margin: auto;
     display: flex;
+    outline: none;
+    border-radius: 5px;
+    font-weight: bold;
+    height: 50px;
+    color: white;
+    background-color: rgba(45, 136, 137, 0.635);
 }
 
 .outer {
+    margin-top: 100px;
     width: 1200px;
     height: 790px;
     padding: 1px;
@@ -136,7 +144,7 @@
 }
 
 .inner1 .up3 {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -151,7 +159,7 @@
 }
 
 .inner1 .line7 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bolder;
 }
 
@@ -161,24 +169,24 @@
 }
 
 .inner1 .line9 {
-    font-size: 15px;
+    font-size: 30px;
     font-weight: bolder;
     color: #6a6d73;
 }
 
 .inner1 .line10 {
-    font-size: 15px;
+    font-size: 30px;
     font-weight: bolder;
     color: #6a6d73;
 }
 
 .inner1 .line11 {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: bolder;
 }
 
 .inner1 .line12 {
-    font-size: 16px;
+    font-size: 25px;
     color: #6a6d73;
 }
 
@@ -195,7 +203,7 @@
 
 .bot {
     width: 100%;
-    margin-top: 300px;
+    margin-top: 190px;
     justify-content: space-between;
 }
 

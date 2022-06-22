@@ -8,6 +8,9 @@ from django.contrib import admin
 
 from django.urls import include, re_path
 
+# password reset
+from django.contrib.auth import views as auth_views
+
 
 
 app_name = 'activities'
@@ -157,6 +160,14 @@ urlpatterns = [
     path('sendmail_confirm/', views.sendmail_confirm, name='sendmail_confirm'),
     path('sendmail_manual/', views.sendmail_manual, name='sendmail_manual'),
     path('custom/', views.custom, name='custom'),
-    path('custemail/<str:id>', views.custemail, name='custemail')
-   
+    path('custemail/<str:id>', views.custemail, name='custemail'),
+    
+    
+    # passworrrdd reset path
+    
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    # path('reset/done/', auth_views.PaswwordResetCompleteView.as_view(), name='password_reset_complete'),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
