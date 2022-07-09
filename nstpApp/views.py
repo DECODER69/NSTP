@@ -1,11 +1,17 @@
 from dataclasses import field
+from datetime import timezone
 from os import name
 from pyexpat.errors import messages
+from sre_parse import CATEGORIES
 from django.contrib import messages 
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import context
 from httplib2 import Authentication
+
+from django.db.models import Count, Q
+
+
 
 import nstpApp
 # from .models import registration
@@ -298,18 +304,22 @@ def adminlogin(request):
 @login_required(login_url='/orglogin')
 
 def admindashboard(request):
+
+   
+    
     count01 = extenduser.objects.filter(status='PENDING').count()
     count02 = extenduser.objects.filter(status='APPROVED').count()
     count03 = extenduser.objects.filter(field = 'ROTC').filter(status = 'ENROLLED').count()
     count04 = extenduser.objects.filter(field = 'CWTS').filter(status = 'ENROLLED').count()
     
     context = {
+      
         'count01': count01,
         'count02': count02,
         'count03': count03,
         'count04': count04,
     }
-    
+
     return render(request, 'activities/admindashboard.html', context)
 @login_required(login_url='/orglogin')
 def deleteimage(request, id):
@@ -936,18 +946,20 @@ def lima(request):
     
     
 
-# def cwtsupload(request):
-#     if request.method == 'POST':    
+def cwtsupload(request):
 
-#         cwts_file = request.FILES["document"]
-#         cwts_name = request.POST["notes"]
-#         file = cwts.objects.create(pdf=cwts_file, name=cwts_name)
-#         file.save()
-#         print("error")
-#         return redirect('/admincwts')
-#     else:
-#         print("error2")
-#         return redirect('/admincwts')
+    if request.method == 'POST':    
+        cwts_file = request.FILES["seca"]
+        cwts_name = request.POST["a_notes"]
+        file = sectiona.objects.create(pdf=cwts_file, name=cwts_name)
+        file.save()
+        return redirect('/section_a')
+    else:
+        print("error2")
+        return render(request, 'activities/adcwts.html')
+def sectiona_delete(request, id):
+    member = sectiona.objects.get(id=id).delete()
+    return redirect('/section_a')
     
 # def cwts_delete(request, id):
 #     member = cwts.objects.get(id=id)
@@ -956,6 +968,13 @@ def lima(request):
 
 def rotc_delete(request, id):
     pass
+
+def adcwts(request):
+    return render(request, 'activities/adcwts.html')
+
+def section_a(request):
+    fff = sectiona.objects.all()
+    return render(request, 'activities/upsectiona.html', {'fff':fff})
 
 
 

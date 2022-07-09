@@ -66,7 +66,7 @@ urlpatterns = [
 
     # path('admincwts/', views.admincwts, name='admincwts'),
     # path('cwtslist1', views.cwtslist1, name='cwtslist1'),
-    # path('cwtsupload/', views.cwtsupload, name='cwtsupload'),
+    path('cwtsupload/', views.cwtsupload, name='cwtsupload'),
     # path('cwts_delete/<str:id>', views.cwts_delete, name='cwts_delete'),
     path('dashboardupload/', views.dashboardupload, name='dashboardupload'),
     path('footer/', views.footer, name='footer'),
@@ -107,6 +107,9 @@ urlpatterns = [
     path('d_juliet/', views.d_juliet, name='d_juliet'),
     path('d_kilo/', views.d_kilo, name='d_kilo'),
     path('d_lima/', views.d_lima, name='d_lima'),
+    path('adcwts/', views.adcwts, name='adcwts'),
+    path('section_a/', views.section_a, name='section_a'),
+    path('sectiona_delete/<str:id>', views.sectiona_delete, name='sectiona_delete'),
     
     
     

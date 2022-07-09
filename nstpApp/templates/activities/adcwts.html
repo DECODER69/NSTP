@@ -1,0 +1,52 @@
+<!DOCTYPE html> {% load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cwts</title>
+    <link rel="stylesheet" href="{% static 'css/cwts.css' %}">
+</head>
+
+<body>
+    {% include 'activities/NavAdmin.html' %}
+    <div class="text">
+
+        <h1 class="headtext"> CWTS Sections</h1>
+    </div>
+    <hr>
+    <div class="top">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">A</h5>
+                        <p class="card-text">Section A</p>
+                        <a href="/section_a" style="text-decoration: none;"><button type="button" class="btn btn-secondary">Open</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">B</h5>
+                        <p class="card-text">Section B</p>
+                        <a href="/section2" style="text-decoration: none;"><button type="button" class="btn btn-secondary">Open</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">C</h5>
+                        <p class="card-text">Section C</p>
+                        <a href="/section3" style="text-decoration: none;"><button type="button" class="btn btn-secondary">Open</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
