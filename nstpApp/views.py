@@ -102,6 +102,7 @@ def cwtslist(request):
     list1 = extenduser.objects.filter(field='CWTS').filter(status='ENROLLED')
     return render(request, 'activities/cwtslist.html', {'list1': list1})
 
+@login_required(login_url='/orglogin')
 def adminrotclist(request):
     rlist = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
     return render(request, 'activities/adminrotclist.html', {'rlist': rlist})
@@ -111,11 +112,14 @@ def admincwtslist(request):
     return render(request, 'activities/admincwtslist.html', {'clist': clist})
 
 def approval(request):
-    approtc = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
-    appcwts = extenduser.objects.filter(field='CWTS').filter(status='PENDING')
-    
-    
-    return render(request, 'activities/approval.html', {'approtc': approtc, 'appcwts': appcwts})
+    if request.user.is_staff:
+        approtc = extenduser.objects.filter(field='ROTC').filter(status='PENDING')
+        appcwts = extenduser.objects.filter(field='CWTS').filter(status='PENDING')
+        
+        
+        return render(request, 'activities/approval.html', {'approtc': approtc, 'appcwts': appcwts})
+    else:
+        return redirect('/orglogin')
     
 
 def enrolledrotc(request):
@@ -302,25 +306,26 @@ def adminlogin(request):
     return render(request, 'activities/login-admin.html')
 
 @login_required(login_url='/orglogin')
-
 def admindashboard(request):
+    if request.user.is_staff:
+        count01 = extenduser.objects.filter(status='PENDING').count()
+        count02 = extenduser.objects.filter(status='APPROVED').count()
+        count03 = extenduser.objects.filter(field = 'ROTC').filter(status = 'ENROLLED').count()
+        count04 = extenduser.objects.filter(field = 'CWTS').filter(status = 'ENROLLED').count()
+        
+        context = {
+        
+            'count01': count01,
+            'count02': count02,
+            'count03': count03,
+            'count04': count04,
+        }
 
-   
-    
-    count01 = extenduser.objects.filter(status='PENDING').count()
-    count02 = extenduser.objects.filter(status='APPROVED').count()
-    count03 = extenduser.objects.filter(field = 'ROTC').filter(status = 'ENROLLED').count()
-    count04 = extenduser.objects.filter(field = 'CWTS').filter(status = 'ENROLLED').count()
-    
-    context = {
-      
-        'count01': count01,
-        'count02': count02,
-        'count03': count03,
-        'count04': count04,
-    }
-
-    return render(request, 'activities/admindashboard.html', context)
+        return render(request, 'activities/admindashboard.html', context)
+    else:
+        return render(request, 'activities/login-admin.html')
+  
+        
 @login_required(login_url='/orglogin')
 def deleteimage(request, id):
     carouimage = carousel.objects.get(id=id)
@@ -337,8 +342,11 @@ def pdf(request, id):
 
 @login_required(login_url='/orglogin')
 def admincertificate(request):
-    request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='')
-    return render(request, 'activities/admincertification.html', {'request1': request1})
+    if request.user.is_staff:
+        request1 = extenduser.objects.exclude(cert_document__isnull=True).exclude(cert_document__exact='')
+        return render(request, 'activities/admincertification.html', {'request1': request1})
+    else:
+        return redirect('/adminlogin')
 
 def navadmin(request):
     return render(request, 'activities/NavAdmin.html')
@@ -359,7 +367,6 @@ def certi(request):
 # admin platoon display
 @login_required(login_url='/orglogin')
 def adminplatoon(request):
-
     return render(request, 'activities/adminplatoons.html')
 @login_required(login_url='/orglogin')
 def d_alpha(request):
@@ -649,13 +656,13 @@ def userlogin(request):
 
 
 def orglogin(request):
-    if request.user.is_authenticated:
-        return redirect('/admindashboard')
+    # if request.user.is_authenticated:
+    #     return redirect('/admindashboard')
     if request.method == "POST":
         username = request.POST.get('orgusername')
         password = request.POST.get('orgpassword')
         user = authenticate(username=username, password=password)
-        if user is not None and user.is_active and user.is_superuser == True:
+        if user is not None and user.is_staff:
             auth.login(request, user)
             return redirect('/admindashboard')
         else:
@@ -957,14 +964,61 @@ def cwtsupload(request):
     else:
         print("error2")
         return render(request, 'activities/adcwts.html')
+    
+    
+def sectionbupload(request):
+
+    if request.method == 'POST':    
+        cwts_file = request.FILES["secb"]
+        cwts_name = request.POST["b_notes"]
+        file = sectionb.objects.create(pdf=cwts_file, name=cwts_name)
+        file.save()
+        return redirect('/section_b')
+    else:
+        print("error2")
+        return render(request, 'activities/adcwts.html')
+    
+def sectioncupload(request):
+    if request.method == 'POST':    
+        cwts_file = request.FILES["secc"]
+        cwts_name = request.POST["c_notes"]
+        file = sectionc.objects.create(pdf=cwts_file, name=cwts_name)
+        file.save()
+        return redirect('/section_c')
+    else:
+        print("error2")
+        return render(request, 'activities/adcwts.html')
+    
+    
 def sectiona_delete(request, id):
     member = sectiona.objects.get(id=id).delete()
     return redirect('/section_a')
+
+def sectionb_delete(request, id):
+    member = sectionb.objects.get(id=id).delete()
+    return redirect('/section_b')
+
+def sectionc_delete(request, id):
+    member = sectionc.objects.get(id=id).delete()
+    return redirect('/section_c')
+
     
 # def cwts_delete(request, id):
 #     member = cwts.objects.get(id=id)
 #     member.delete()
 #     return redirect('/admincwts')
+
+
+
+
+
+
+
+
+
+
+
+
 
 def rotc_delete(request, id):
     pass
@@ -976,6 +1030,13 @@ def section_a(request):
     fff = sectiona.objects.all()
     return render(request, 'activities/upsectiona.html', {'fff':fff})
 
+
+def section_b(request):
+    ffg = sectionb.objects.all()
+    return render(request, 'activities/upsectionb.html', {'ffg':ffg})
+def section_c(request):
+    fgg = sectionc.objects.all()
+    return render(request, 'activities/upsectionc.html', {'fgg':fgg})
 
 
 
@@ -1118,17 +1179,14 @@ def section3(request):
 
 
 
-    
 
-
-    
-
-                         
 # EMAILLLLLLLLLLLL
 def email(request):
-    hehe = extenduser.objects.filter(cert_status='APPROVED')
-    return render(request, 'activities/email.html', {'hehe':hehe})
-
+    if request.user.is_staff:
+        hehe = extenduser.objects.filter(cert_status='APPROVED')
+        return render(request, 'activities/email.html', {'hehe':hehe})
+    else:
+        return redirect('/adminlogin')
 
 def sendmail_confirm( request):
     if request.method == 'POST':
@@ -1159,22 +1217,30 @@ def sendmail_manual( request):
 
 
 def custom(request):
-    if request.method == 'POST':
-        sub = request.POST.get('emailtext')
-        msg = request.POST.get('message')
-        emaila = request.POST.get('cusemail')
-        send_mail(sub, msg,'tupc.nstp@gmail.com',[emaila])
+    if request.user.is_staff:
+  
+        if request.method == 'POST':
+            sub = request.POST.get('emailtext')
+            msg = request.POST.get('message')
+            emaila = request.POST.get('cusemail')
+            send_mail(sub, msg,'tupc.nstp@gmail.com',[emaila])
+            return redirect('/email')
         return redirect('/email')
-    return redirect('/email')
+    else:
+        return redirect('/adminlogin')
 
 def custemail(request, id):
-    hehe1 = extenduser.objects.filter(cert_status='APPROVED')
-    ems = extenduser.objects.filter(id=id)
-    context={
-        'hehe1':hehe1,
-        'ems':ems
-    }
-    return render(request, 'activities/customemail.html', context)
+    if request.user.is_staff:
+   
+        hehe1 = extenduser.objects.filter(cert_status='APPROVED')
+        ems = extenduser.objects.filter(id=id)
+        context={
+            'hehe1':hehe1,
+            'ems':ems
+        }
+        return render(request, 'activities/customemail.html', context)
+    else:
+        return redirect('/adminlogin')
 
 
 def RequestPasswordResetEmail(View):

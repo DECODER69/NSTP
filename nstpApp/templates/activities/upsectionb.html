@@ -20,7 +20,6 @@
 
     <div class="cardx ">
         <div class="card-header"> SECTION B
-
         </div>
     </div>
 
@@ -28,7 +27,7 @@
 
     <!-- uploads -->
     <div class="fortit">
-        <form action="{% url 'activities:cwtsupload' %}" method="POST" enctype="multipart/form-data" name="files">
+        <form action="{% url 'activities:sectionbupload' %}" method="POST" enctype="multipart/form-data" name="files">
             {% csrf_token %}
 
             <div class="uploads">
@@ -58,13 +57,13 @@
                                             <div class="fileUpload btn btn-orange">
                                                 <img src="{% static 'image/upload.png' %}" class="icon">
                                                 <span class="upl" id="upload">Upload document</span>
-                                                <input type="file" name="seca" class="upload up" id="up" onchange="readURL(this);" required/>
+                                                <input type="file" name="secb" class="upload up" id="up" onchange="readURL(this);" required/>
                                             </div>
                                             <!-- btn-orange -->
                                         </div>
                                         <!-- col-3 -->
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="a_notes" placeholder="Filename" required>
+                                            <input type="text" class="form-control" name="b_notes" placeholder="Filename" required>
                                         </div>
                                         <!--col-8-->
                                         <div class="col-sm-1"><a class="btn-check"><i class="fa fa-times"></i></a></div>
@@ -99,7 +98,7 @@
                         </thead>
 
                         <tbody>
-                            {% for file in fff %}
+                            {% for file in ffg %}
 
                             <tr>
 
@@ -109,7 +108,7 @@
                                     <button class="pdf" disabled><a style="text-decoration:none" href="{{file.pdf.url}}" target="__blank"><i class="fa fa-download" aria-hidden="true"> Download</i></a></button> {% endif %}
 
                                 </td>
-                                <td><button class="delete" disabled><a style="text-decoration:none" href="{% url 'activities:sectiona_delete' file.id %}" ><i class="fa fa-trash" aria-hidden="true"> Delete</i></a></button></td>
+                                <td><button class="delete" disabled><a style="text-decoration:none" href="{% url 'activities:sectionb_delete' file.id %}" ><i class="fa fa-trash" aria-hidden="true"> Delete</i></a></button></td>
 
                             </tr>
                             {% endfor %}
